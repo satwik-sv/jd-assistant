@@ -1,0 +1,112 @@
+{
+  "ranAt": "2026-10-03T11:53:40.391Z",
+  "passed": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "Import posting.txt",
+      "passed": true,
+      "status": 200,
+      "result": {
+        "text": "Software Engineer\nLocation: Remote within India.\nBuild React applications and Python APIs.\nDesign PostgreSQL databases."
+      }
+    },
+    {
+      "name": "Import posting.docx",
+      "passed": true,
+      "status": 200,
+      "result": {
+        "text": "Software Engineer\n\nLocation: Remote within India.\n\nBuild React applications and Python APIs.\n\nDesign PostgreSQL databases."
+      }
+    },
+    {
+      "name": "Import posting.pdf",
+      "passed": true,
+      "status": 200,
+      "result": {
+        "text": "Software Engineer. Build React applications and Python APIs."
+      }
+    },
+    {
+      "name": "Import blank.pdf",
+      "passed": true,
+      "status": 400,
+      "result": {
+        "error": "No sufficient readable text was found. Scanned PDFs need OCR; paste the extracted text instead."
+      }
+    },
+    {
+      "name": "Import corrupt.doc",
+      "passed": true,
+      "status": 400,
+      "result": {
+        "error": "Could not read this file. Check that it is a valid, unencrypted document, or paste its text."
+      }
+    },
+    {
+      "name": "Import unsupported.exe",
+      "passed": true,
+      "status": 400,
+      "result": {
+        "error": "Choose a PDF, DOCX, DOC or TXT file."
+      }
+    },
+    {
+      "name": "Import oversized.txt",
+      "passed": true,
+      "status": 400,
+      "result": {
+        "error": "The request is too large."
+      }
+    },
+    {
+      "name": "Missing resume",
+      "passed": true,
+      "status": 400,
+      "result": {
+        "error": "Paste a resume between 30 and 24,000 characters for comparison."
+      }
+    },
+    {
+      "name": "Resume weak spots",
+      "passed": true,
+      "status": 200,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Python API Development",
+            "reason": "The resume does not demonstrate experience with Python or API development.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 3,
+                "quote": "Build React applications and Python APIs."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "PostgreSQL Database Design",
+            "reason": "The resume does not demonstrate database design or PostgreSQL experience.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 4,
+                "quote": "Design PostgreSQL databases."
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fully matched resume",
+      "passed": true,
+      "status": 200,
+      "result": {
+        "weakSpots": []
+      }
+    }
+  ]
+}

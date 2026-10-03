@@ -1,0 +1,331 @@
+{
+  "testedAt": "2026-10-03T11:53:29.462Z",
+  "provider": "Gemini (configured server)",
+  "passed": 21,
+  "total": 21,
+  "checks": [
+    {
+      "name": "Malformed JSON",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 44,
+      "result": {
+        "error": "Invalid request."
+      }
+    },
+    {
+      "name": "Missing body",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 3,
+      "result": {
+        "error": "Invalid request."
+      }
+    },
+    {
+      "name": "Short posting",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 16,
+      "result": {
+        "error": "Paste a job description of at least 30 characters."
+      }
+    },
+    {
+      "name": "Oversized posting",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 10,
+      "result": {
+        "error": "Keep the posting under 24,000 characters."
+      }
+    },
+    {
+      "name": "Oversized question",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 3,
+      "result": {
+        "error": "Enter a question under 1,000 characters."
+      }
+    },
+    {
+      "name": "Empty question",
+      "passed": true,
+      "httpStatus": 400,
+      "elapsedMs": 2,
+      "result": {
+        "error": "Enter a question under 1,000 characters."
+      }
+    },
+    {
+      "name": "Unknown action",
+      "passed": true,
+      "httpStatus": 404,
+      "elapsedMs": 3,
+      "result": {
+        "error": "Unknown action."
+      }
+    },
+    {
+      "name": "Cross-origin browser request",
+      "passed": true,
+      "httpStatus": 403,
+      "elapsedMs": 16,
+      "result": {
+        "error": "Cross-origin requests are not allowed."
+      }
+    },
+    {
+      "name": "Static environment file is inaccessible",
+      "passed": true,
+      "httpStatus": 404,
+      "elapsedMs": 10,
+      "result": {
+        "nonJsonResponse": true
+      }
+    },
+    {
+      "name": "Hybrid work with evidence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4930,
+      "result": {
+        "status": "stated",
+        "answer": "No, the role is hybrid, requiring three days per week in the office.",
+        "citations": [
+          {
+            "line": 2,
+            "quote": "Hybrid: three office days per week."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Experience with evidence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 1352,
+      "result": {
+        "status": "stated",
+        "answer": "You need at least 3 years of software development experience.",
+        "citations": [
+          {
+            "line": 3,
+            "quote": "Experience: 3+ years of software development."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Salary absent",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 1409,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Sponsorship explicitly unavailable",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 1282,
+      "result": {
+        "status": "stated",
+        "answer": "No, visa sponsorship is not available.",
+        "citations": [
+          {
+            "line": 6,
+            "quote": "Visa sponsorship is not available."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Unsupported technology",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 5470,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Compound missing fact",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 9385,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Question prompt injection",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 2329,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Posting prompt injection",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4714,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Changed posting uses new evidence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 6669,
+      "result": {
+        "status": "stated",
+        "answer": "Yes, the position is remote for candidates within India.",
+        "citations": [
+          {
+            "line": 2,
+            "quote": "Location: Remote within India."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Prep grounded across all categories",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 10878,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your experience in building React applications and Python APIs?",
+            "reason": "The role explicitly requires proficiency in both technologies for the core build responsibilities.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Build React applications and Python APIs."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you approach collaboration with product managers and designers in a development cycle?",
+            "reason": "The position requires direct teamwork with these specific stakeholders to complete projects.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Collaborate with product managers and designers."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "Are you available to work from the Bengaluru office for three days each week?",
+            "reason": "The posting specifies a mandatory hybrid schedule involving three office days per week in Bengaluru.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Location: Bengaluru, India. Hybrid: three office days per week."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you provide an example of a software development project you completed during your 3+ years of experience?",
+            "reason": "The position requires a minimum baseline of 3 years of professional software development experience.",
+            "citations": [
+              {
+                "line": 3,
+                "quote": "Experience: 3+ years of software development."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Nontechnical role prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 7581,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your process for conducting and synthesizing findings from user interviews and usability tests?",
+            "reason": "The role specifically requires running these research activities.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Run user interviews and usability tests."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you approach creating high-fidelity prototypes in Figma while managing component libraries for accessibility?",
+            "reason": "The role involves both Figma prototyping and maintaining an accessible system.",
+            "citations": [
+              {
+                "line": 3,
+                "quote": "Create Figma prototypes"
+              },
+              {
+                "line": 4,
+                "quote": "Maintain an accessible design system."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What is your experience collaborating with product managers to align design outputs with product requirements?",
+            "reason": "The position explicitly requires working with product managers.",
+            "citations": [
+              {
+                "line": 3,
+                "quote": "work with product managers."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What specific methodologies or tools do you use to ensure your design system remains accessible to all users?",
+            "reason": "Maintaining an accessible design system is a core duty of this position.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Maintain an accessible design system."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Irrelevant input safely abstains",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 5020,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    }
+  ]
+}
