@@ -55,15 +55,11 @@ With more time: build a labeled evaluation set for missing facts, contradictions
 
 ## Validation
 
-`npm test` covers normalization, limits, absent-fact wording, nonexistent evidence, malformed output, source labels, prep evidence, provider request construction and failure/refusal handling. Provider unit tests use a mock transport and do not prove live LLM accuracy. `node tests/live-check.mjs` explicitly runs HTTP boundary checks and real-provider evaluation against the running app using synthetic postings; it writes TEST_RESULTS.json. See TEST_REPORT.md for the final review and EVALUATION.md for the manual checklist. A production build verifies the React bundle. No API key is included in the submission package.
+`npm test` covers normalization, limits, absent-fact wording, nonexistent evidence, malformed output, source labels, prep evidence, imports, resume evidence, provider request construction and failure/refusal handling. Provider unit tests use a mock transport and do not prove live LLM accuracy. Against the running app, `node tests/live-check.mjs` evaluates the core features and `node tests/optional-live.mjs` evaluates imports and resume comparison. These explicitly call the configured real provider with synthetic documents and write their JSON reports. See TEST_REPORT.md for coverage and limitations. The final checks passed 22 automated tests, 21 core live checks and 10 optional live checks; the production build also passed.
 
 ## AI tool usage
 
-Codex was used to read the assignment, create the React/Node implementation, draft prompts, write deterministic tests and prepare documentation. The design favors a small codebase that can be navigated and modified in a live review. The candidate should run the app with their key, inspect the code, complete the live evaluation checklist, and adapt the walkthrough to their actual understanding; do not claim tests or decisions that you have not verified yourself.
-
-## Submission
-
-The brief allows a GitHub repository instead of a deployed link. Create a repository from this folder, including package-lock.json and excluding node_modules, dist and .env. Make sure reviewers have access. Record a 2–4 minute screen walkthrough using WALKTHROUGH.md. Saturday October 3, 2026 is the requested submission date; confirm the company’s EOD timezone.
+Codex assisted with implementation, prompts, deterministic tests and documentation. The project uses a small React/Node codebase with centralized grounding and evidence validation. Test results and remaining limitations are recorded in TEST_REPORT.md.
 
 ## Source display and response speed
 

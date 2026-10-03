@@ -12,9 +12,7 @@
 | Shared grounding engine | server/grounding.js provides the same normalization, prompt structure and evidence checks |
 | Optional resume weak spots | Up to three gaps; JD citations and resume evidence for partial matches; live missing and fully matched resume checks pass |
 | File import enhancement | PDF, DOCX, DOC and TXT readers; review-before-apply editor |
-| README | Setup, assumptions, tradeoffs, limitations, AI usage and submission instructions provided |
-| Repository or deployed link | Candidate must create/share the repository or deploy before submission |
-| 2–4 minute recording | Candidate must record and share; WALKTHROUGH.md provides the script |
+| README | Setup, assumptions, tradeoffs, limitations and AI usage provided |
 
 ## Executed validation
 

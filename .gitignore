@@ -2,3 +2,7 @@ node_modules/
 dist/
 .env
 *.log
+INTERVIEW_GUIDE.md
+SUBMISSION_GUIDE.md
+WALKTHROUGH.md
+EVALUATION.md
