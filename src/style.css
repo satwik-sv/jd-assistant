@@ -903,3 +903,35 @@ header {
     transition: none;
   }
 }
+
+.resume-summary {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #dce5f5;
+  border-radius: 14px;
+  background: #f5f8ff;
+}
+.resume-summary strong {
+  display: block;
+  margin-top: 8px;
+  color: #243650;
+}
+.resume-summary p {
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+  color: #62728c;
+}
+#resume-panel .weak-spots {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+#resume-panel details {
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .tabs button {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+}

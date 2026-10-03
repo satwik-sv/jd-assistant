@@ -49,6 +49,28 @@ function App() {
       );
     return () => pending.current?.abort();
   }, []);
+  useEffect(() => {
+    if (editing && tab === "resume" && resumeDetails.current) {
+      resumeDetails.current.open = true;
+    }
+  }, [editing, tab]);
+  function editResume() {
+    setTab("resume");
+    setEditing(true);
+  }
+  function navigateTabs(event) {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const names = ["ask", "prep", "resume"];
+    const next =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? 2
+          : (names.indexOf(tab) + (event.key === "ArrowRight" ? 1 : 2)) % 3;
+    setTab(names[next]);
+    window.document.getElementById(names[next] + "-tab")?.focus();
+  }
   function commit() {
     if (busy) return;
     if (jd.trim().length < 30) {
@@ -199,6 +221,89 @@ function App() {
         </button>
       ))}
     </div>
+  );
+  const resumePanel = (
+    <section className="weak-spots">
+      <h3>Likely weak spots</h3>
+      <button
+        className="text-button"
+        disabled={Boolean(busy)}
+        onClick={editResume}
+      >
+        {activeResume.trim() ? "Edit resume" : "Add resume"}
+      </button>
+      <p className="small-note">
+        Gaps in what your resume demonstrates, not a judgment of your ability.
+      </p>
+      {activeResume.trim() ? (
+        <>
+          <button
+            className="primary"
+            disabled={editing || Boolean(busy) || !configured}
+            onClick={() => run("gaps")}
+          >
+            {busy === "gaps"
+              ? "Comparing…"
+              : gaps
+                ? "Compare again"
+                : "Compare resume"}
+          </button>
+          {busy === "gaps" && (
+            <p className="loading" role="status">
+              Checking JD requirements against your resume…
+            </p>
+          )}
+          {gaps && (
+            <div aria-live="polite">
+              {gaps.length === 0 ? (
+                <p>No clear evidence gaps were found for this posting.</p>
+              ) : (
+                gaps.map((item, index) => (
+                  <article key={index}>
+                    <h4>{item.topic}</h4>
+                    <span className="status">
+                      {item.status === "not_demonstrated"
+                        ? "Not demonstrated in resume"
+                        : "Partially demonstrated"}
+                    </span>
+                    <p>{item.reason}</p>
+                    {evidence(item.jdCitations)}
+                    <div className="resume-evidence">
+                      {item.resumeCitations.length > 0 ? (
+                        item.resumeCitations.map((c, i) => (
+                          <p key={i}>
+                            Resume line {c.line}: “{c.quote}”
+                          </p>
+                        ))
+                      ) : (
+                        <p>No matching resume evidence identified.</p>
+                      )}
+                    </div>
+                  </article>
+                ))
+              )}
+            </div>
+          )}
+          <details>
+            <summary>View numbered resume source</summary>
+            <ol>
+              {activeResume
+                .split(/\r?\n/)
+                .map((s) => s.trim())
+                .filter(Boolean)
+                .map((text, i) => (
+                  <li key={i}>{text}</li>
+                ))}
+            </ol>
+          </details>
+        </>
+      ) : (
+        <p className="small-note">
+          Add an optional resume, then click Use this posting to save it for
+          comparison.
+        </p>
+      )}
+    </section>
   );
   return (
     <>
@@ -420,6 +525,30 @@ function App() {
                     </section>
                   ))}
                 </div>
+                <div className="resume-summary">
+                  <span className="mini-label">OPTIONAL RESUME</span>
+                  <strong>
+                    {activeResume.trim()
+                      ? "Resume attached"
+                      : "No resume added"}
+                  </strong>
+                  <p>
+                    {activeResume.trim()
+                      ? activeResume.trim().split(/\r?\n/)[0]
+                      : "Compare your resume with this posting to spot evidence gaps."}
+                  </p>
+                  <button
+                    className="text-button"
+                    disabled={Boolean(busy)}
+                    onClick={() =>
+                      activeResume.trim() ? setTab("resume") : editResume()
+                    }
+                  >
+                    {activeResume.trim()
+                      ? "Review and compare resume →"
+                      : "Add resume →"}
+                  </button>
+                </div>
               </>
             )}
           </section>
@@ -429,7 +558,7 @@ function App() {
                 <span className="section-number">02</span>
                 <h2>Explore the role</h2>
               </div>
-              <span className="source-badge">ONE POSTING · TWO VIEWS</span>
+              <span className="source-badge">ONE POSTING · THREE VIEWS</span>
             </div>
             <div
               className="tabs"
@@ -442,12 +571,7 @@ function App() {
                 aria-selected={tab === "ask"}
                 aria-controls="ask-panel"
                 tabIndex={tab === "ask" ? 0 : -1}
-                onKeyDown={(e) => {
-                  if (e.key === "ArrowRight") {
-                    setTab("prep");
-                    window.document.getElementById("prep-tab").focus();
-                  }
-                }}
+                onKeyDown={navigateTabs}
                 className={tab === "ask" ? "selected" : ""}
                 onClick={() => setTab("ask")}
               >
@@ -459,16 +583,23 @@ function App() {
                 aria-selected={tab === "prep"}
                 aria-controls="prep-panel"
                 tabIndex={tab === "prep" ? 0 : -1}
-                onKeyDown={(e) => {
-                  if (e.key === "ArrowLeft") {
-                    setTab("ask");
-                    window.document.getElementById("ask-tab").focus();
-                  }
-                }}
+                onKeyDown={navigateTabs}
                 className={tab === "prep" ? "selected" : ""}
                 onClick={() => setTab("prep")}
               >
                 Interview prep
+              </button>
+              <button
+                id="resume-tab"
+                role="tab"
+                aria-selected={tab === "resume"}
+                aria-controls="resume-panel"
+                tabIndex={tab === "resume" ? 0 : -1}
+                onKeyDown={navigateTabs}
+                className={tab === "resume" ? "selected" : ""}
+                onClick={() => setTab("resume")}
+              >
+                Resume check
               </button>
             </div>
             {tab === "ask" ? (
@@ -581,7 +712,7 @@ function App() {
                   </p>
                 </form>
               </div>
-            ) : (
+            ) : tab === "prep" ? (
               <div
                 id="prep-panel"
                 role="tabpanel"
@@ -721,85 +852,31 @@ function App() {
                     )}
                   </div>
                 )}
-                <section className="weak-spots">
-                  <h3>Likely weak spots</h3>
+                <button
+                  className="text-button"
+                  onClick={() => setTab("resume")}
+                >
+                  Open resume check →
+                </button>
+              </div>
+            ) : (
+              <div
+                id="resume-panel"
+                role="tabpanel"
+                aria-labelledby="resume-tab"
+                className="tab-content"
+              >
+                {editing && (
                   <p className="small-note">
-                    Gaps in what your resume demonstrates, not a judgment of
-                    your ability.
+                    Save your changes with Use this posting before comparing.
                   </p>
-                  {activeResume.trim() ? (
-                    <>
-                      <button
-                        className="primary"
-                        disabled={editing || Boolean(busy) || !configured}
-                        onClick={() => run("gaps")}
-                      >
-                        {busy === "gaps"
-                          ? "Comparing…"
-                          : gaps
-                            ? "Compare again"
-                            : "Compare resume"}
-                      </button>
-                      {busy === "gaps" && (
-                        <p className="loading" role="status">
-                          Checking JD requirements against your resume…
-                        </p>
-                      )}
-                      {gaps && (
-                        <div aria-live="polite">
-                          {gaps.length === 0 ? (
-                            <p>
-                              No clear evidence gaps were found for this
-                              posting.
-                            </p>
-                          ) : (
-                            gaps.map((item, index) => (
-                              <article key={index}>
-                                <h4>{item.topic}</h4>
-                                <span className="status">
-                                  {item.status === "not_demonstrated"
-                                    ? "Not demonstrated in resume"
-                                    : "Partially demonstrated"}
-                                </span>
-                                <p>{item.reason}</p>
-                                {evidence(item.jdCitations)}
-                                <div className="resume-evidence">
-                                  {item.resumeCitations.length > 0 ? (
-                                    item.resumeCitations.map((c, i) => (
-                                      <p key={i}>
-                                        Resume line {c.line}: “{c.quote}”
-                                      </p>
-                                    ))
-                                  ) : (
-                                    <p>
-                                      No matching resume evidence identified.
-                                    </p>
-                                  )}
-                                </div>
-                              </article>
-                            ))
-                          )}
-                        </div>
-                      )}
-                      <details>
-                        <summary>View numbered resume source</summary>
-                        <ol>
-                          {activeResume
-                            .split(/\r?\n/)
-                            .map((s) => s.trim())
-                            .filter(Boolean)
-                            .map((text, i) => (
-                              <li key={i}>{text}</li>
-                            ))}
-                        </ol>
-                      </details>
-                    </>
-                  ) : (
-                    <p className="small-note">
-                      Use Edit posting to add a resume, then apply the posting.
-                    </p>
-                  )}
-                </section>
+                )}
+                {!document && (
+                  <p className="small-note">
+                    Start by loading or adding a job description.
+                  </p>
+                )}
+                {resumePanel}
               </div>
             )}
           </section>

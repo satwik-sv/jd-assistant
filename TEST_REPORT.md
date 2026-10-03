@@ -14,6 +14,12 @@
 | File import enhancement | PDF, DOCX, DOC and TXT readers; review-before-apply editor |
 | README | Setup, assumptions, tradeoffs, limitations and AI usage provided |
 
+## Resume visibility fix — 3 October 2026
+
+- Applying a sample posting keeps a visible Resume attached card and a dedicated Resume check tab. Two real Gemini comparisons completed successfully with validated JD and resume citations.
+- Browser checks passed: retained resume source, edit disclosure opens with saved text, cancelling preserves source/results, removing a resume clears stale results, tab switching preserves comparison, card and prep shortcuts, and keyboard navigation wraps across three tabs.
+- At a 390-pixel viewport, all three tabs fit with no horizontal page overflow. Production build and all 26 automated tests passed.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
