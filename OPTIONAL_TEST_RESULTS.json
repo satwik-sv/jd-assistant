@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-03T11:53:40.391Z",
+  "ranAt": "2026-10-03T13:39:46.099Z",
   "passed": 10,
   "total": 10,
   "checks": [
@@ -75,7 +75,7 @@
         "weakSpots": [
           {
             "topic": "Python API Development",
-            "reason": "The resume does not demonstrate experience with Python or API development.",
+            "reason": "The resume focuses exclusively on React development and does not mention experience building Python APIs.",
             "status": "not_demonstrated",
             "jdCitations": [
               {
@@ -87,7 +87,7 @@
           },
           {
             "topic": "PostgreSQL Database Design",
-            "reason": "The resume does not demonstrate database design or PostgreSQL experience.",
+            "reason": "The resume does not demonstrate experience with designing PostgreSQL databases.",
             "status": "not_demonstrated",
             "jdCitations": [
               {

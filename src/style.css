@@ -797,3 +797,109 @@ footer > span:first-child {
   margin-right: 10px;
   cursor: pointer;
 }
+
+/* A calmer workspace with distinct source and practice cards. */
+body {
+  background:
+    radial-gradient(ellipse at top left, #e9f0ff 0, transparent 48%), #f5f7fb;
+}
+header {
+  background: #ffffffed;
+}
+.source-panel,
+.explore-panel {
+  border-color: #dce5f4;
+  box-shadow: 0 12px 36px #16336308;
+  border-radius: 20px;
+}
+.source-group h3 {
+  background: #eaf1ff;
+}
+.jd-input,
+.resume-input textarea {
+  background: #fbfcff;
+  border-color: #d5dfef;
+}
+.primary {
+  box-shadow: 0 4px 10px #1d4ed821;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s;
+}
+.primary:hover:not(:disabled) {
+  box-shadow: 0 6px 16px #1d4ed82d;
+}
+.resume-input {
+  background: #f7f9ff;
+  border: 1px solid #e0e7f4;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+.resume-input summary {
+  font-weight: 600;
+}
+.sample-note,
+.prep-budget {
+  color: #526886;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.section-intro .prep-budget {
+  background: #edf4ff;
+  color: #26518c;
+  padding: 10px 13px;
+  border-radius: 9px;
+  margin-bottom: 20px;
+}
+.prep-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+.download-button {
+  display: inline-flex;
+  border: 1px solid #c8d8f4;
+  background: #f1f6ff;
+  color: #1845a5;
+  padding: 10px 15px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.download-button:hover {
+  background: #e6efff;
+}
+.prep-group article,
+.weak-spots article {
+  border: 1px solid #e2e9f4;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 12px 0;
+  background: #fcfdff;
+}
+.prep-group h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.question-count {
+  font-size: 11px;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: #718198;
+  text-transform: none;
+}
+@media (min-width: 1001px) {
+  .source-panel {
+    position: sticky;
+    top: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .primary {
+    transition: none;
+  }
+}

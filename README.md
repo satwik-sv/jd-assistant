@@ -38,12 +38,12 @@ API references: [Gemini structured output](https://ai.google.dev/gemini-api/docs
 
 - Short job postings fit in the context window, so full-document grounding is simpler and preserves missing-fact context better than top-k retrieval. There is a 24,000-character limit instead of silent truncation.
 - Line citations are numbered nonempty source lines after whitespace normalization, not Word page or physical wrapped-line numbers. The UI displays the same numbering and highlights sources when clicked.
-- Interview prep is explicitly labeled as practice suggestions, not actual employer interview questions. Up to six prompts are requested; unsupported categories are omitted instead of filled with generic questions.
+- Interview prep is explicitly labeled as practice suggestions, not actual employer interview questions. The shared policy requests up to 6, 10 or 15 prompts based on meaningful line/word count; unsupported categories are omitted instead of filled with generic questions.
 - A compound question with any missing requested fact conservatively abstains. A future version could answer each subquestion independently.
 - Optional resume comparison lists up to three important requirements not clearly demonstrated by the resume. Each item cites the JD; partial matches also cite exact resume text. Missing evidence is labeled without inventing a resume citation. A fully matched resume can produce no weak spots.
 - PDF, DOCX, legacy DOC and UTF-8 TXT imports extract text on the server without saving the file. Review the extracted text before applying. Limits: 5 MB, 24,000 characters and 50 PDF pages. Scanned PDFs require OCR outside this app. Tables, columns and legacy formatting may change reading order; numbered citations refer to extracted text, not original pages.
-- Seven fictional sample postings cycle through different roles; they supply editable input and never substitute canned answers for the real API.
-- Copy prep text opens a selectable text version of questions, reasons and citations for your practice notes.
+- Eight fictional sample postings cycle through different roles and fill a related fictional resume at the same time. Samples contain intentional evidence gaps, use no API credits, and never substitute canned answers for the real API.
+- Copy prep text opens a selectable text version. Download prep returns a TXT attachment with the questions, reasons and source citations, without another AI call or storing a file.
 
 ## Tradeoffs and limits
 
@@ -55,7 +55,7 @@ With more time: build a labeled evaluation set for missing facts, contradictions
 
 ## Validation
 
-`npm test` covers normalization, limits, absent-fact wording, nonexistent evidence, malformed output, source labels, prep evidence, imports, resume evidence, provider request construction and failure/refusal handling. Provider unit tests use a mock transport and do not prove live LLM accuracy. Against the running app, `node tests/live-check.mjs` evaluates the core features and `node tests/optional-live.mjs` evaluates imports and resume comparison. These explicitly call the configured real provider with synthetic documents and write their JSON reports. See TEST_REPORT.md for coverage and limitations. The final checks passed 22 automated tests, 21 core live checks and 10 optional live checks; the production build also passed.
+`npm test` covers normalization, limits, absent-fact wording, nonexistent evidence, malformed output, source labels, prep evidence, imports, resume evidence, provider request construction and failure/refusal handling. Provider unit tests use a mock transport and do not prove live LLM accuracy. Against the running app, `node tests/live-check.mjs` evaluates the core features and `node tests/optional-live.mjs` evaluates imports and resume comparison. These explicitly call the configured real provider with synthetic documents and write their JSON reports. See TEST_REPORT.md for coverage and limitations. See the dated test report and result files for executed counts and any provider limitations. `node tests/sample-live.mjs` also evaluates all eight fictional JD/resume pairs and short/medium/long question coverage with paced live requests.
 
 ## AI tool usage
 

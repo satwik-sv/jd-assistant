@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-03T11:53:29.462Z",
+  "testedAt": "2026-10-03T13:37:36.350Z",
   "provider": "Gemini (configured server)",
   "passed": 21,
   "total": 21,
@@ -8,7 +8,7 @@
       "name": "Malformed JSON",
       "passed": true,
       "httpStatus": 400,
-      "elapsedMs": 44,
+      "elapsedMs": 37,
       "result": {
         "error": "Invalid request."
       }
@@ -17,7 +17,7 @@
       "name": "Missing body",
       "passed": true,
       "httpStatus": 400,
-      "elapsedMs": 3,
+      "elapsedMs": 4,
       "result": {
         "error": "Invalid request."
       }
@@ -26,7 +26,7 @@
       "name": "Short posting",
       "passed": true,
       "httpStatus": 400,
-      "elapsedMs": 16,
+      "elapsedMs": 5,
       "result": {
         "error": "Paste a job description of at least 30 characters."
       }
@@ -35,7 +35,7 @@
       "name": "Oversized posting",
       "passed": true,
       "httpStatus": 400,
-      "elapsedMs": 10,
+      "elapsedMs": 3,
       "result": {
         "error": "Keep the posting under 24,000 characters."
       }
@@ -53,7 +53,7 @@
       "name": "Empty question",
       "passed": true,
       "httpStatus": 400,
-      "elapsedMs": 2,
+      "elapsedMs": 3,
       "result": {
         "error": "Enter a question under 1,000 characters."
       }
@@ -71,7 +71,7 @@
       "name": "Cross-origin browser request",
       "passed": true,
       "httpStatus": 403,
-      "elapsedMs": 16,
+      "elapsedMs": 3,
       "result": {
         "error": "Cross-origin requests are not allowed."
       }
@@ -80,7 +80,7 @@
       "name": "Static environment file is inaccessible",
       "passed": true,
       "httpStatus": 404,
-      "elapsedMs": 10,
+      "elapsedMs": 4,
       "result": {
         "nonJsonResponse": true
       }
@@ -89,10 +89,10 @@
       "name": "Hybrid work with evidence",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 4930,
+      "elapsedMs": 1758,
       "result": {
         "status": "stated",
-        "answer": "No, the role is hybrid, requiring three days per week in the office.",
+        "answer": "No, the role is hybrid and requires three days in the office per week.",
         "citations": [
           {
             "line": 2,
@@ -105,7 +105,7 @@
       "name": "Experience with evidence",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 1352,
+      "elapsedMs": 1762,
       "result": {
         "status": "stated",
         "answer": "You need at least 3 years of software development experience.",
@@ -121,7 +121,7 @@
       "name": "Salary absent",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 1409,
+      "elapsedMs": 1875,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",
@@ -132,10 +132,10 @@
       "name": "Sponsorship explicitly unavailable",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 1282,
+      "elapsedMs": 2529,
       "result": {
         "status": "stated",
-        "answer": "No, visa sponsorship is not available.",
+        "answer": "No, the company does not offer visa sponsorship.",
         "citations": [
           {
             "line": 6,
@@ -148,7 +148,7 @@
       "name": "Unsupported technology",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 5470,
+      "elapsedMs": 1413,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",
@@ -159,7 +159,7 @@
       "name": "Compound missing fact",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 9385,
+      "elapsedMs": 2133,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",
@@ -170,7 +170,7 @@
       "name": "Question prompt injection",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 2329,
+      "elapsedMs": 1425,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",
@@ -181,7 +181,7 @@
       "name": "Posting prompt injection",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 4714,
+      "elapsedMs": 1370,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",
@@ -192,7 +192,7 @@
       "name": "Changed posting uses new evidence",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 6669,
+      "elapsedMs": 7226,
       "result": {
         "status": "stated",
         "answer": "Yes, the position is remote for candidates within India.",
@@ -208,13 +208,24 @@
       "name": "Prep grounded across all categories",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 10878,
+      "elapsedMs": 6457,
       "result": {
         "questions": [
           {
             "category": "technical",
-            "question": "Can you describe your experience in building React applications and Python APIs?",
-            "reason": "The role explicitly requires proficiency in both technologies for the core build responsibilities.",
+            "question": "Can you describe your experience building and deploying React applications?",
+            "reason": "The role requires building React applications as a core technical responsibility.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Build React applications and Python APIs."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What frameworks or libraries have you used to develop Python APIs?",
+            "reason": "Python API development is a specific technical requirement for this position.",
             "citations": [
               {
                 "line": 4,
@@ -224,8 +235,8 @@
           },
           {
             "category": "role-specific",
-            "question": "How do you approach collaboration with product managers and designers in a development cycle?",
-            "reason": "The position requires direct teamwork with these specific stakeholders to complete projects.",
+            "question": "How have you navigated cross-functional collaboration with product managers and designers in your previous roles?",
+            "reason": "The job description explicitly mentions the need to collaborate with these specific team members.",
             "citations": [
               {
                 "line": 5,
@@ -234,20 +245,20 @@
             ]
           },
           {
-            "category": "role-specific",
-            "question": "Are you available to work from the Bengaluru office for three days each week?",
-            "reason": "The posting specifies a mandatory hybrid schedule involving three office days per week in Bengaluru.",
+            "category": "behavioral",
+            "question": "How do you manage your workflow and maintain productivity in a hybrid work environment that requires three days in the office?",
+            "reason": "The position specifies a hybrid work arrangement with a set schedule of three office days per week.",
             "citations": [
               {
                 "line": 2,
-                "quote": "Location: Bengaluru, India. Hybrid: three office days per week."
+                "quote": "Hybrid: three office days per week."
               }
             ]
           },
           {
-            "category": "behavioral",
-            "question": "Can you provide an example of a software development project you completed during your 3+ years of experience?",
-            "reason": "The position requires a minimum baseline of 3 years of professional software development experience.",
+            "category": "role-specific",
+            "question": "Could you walk us through a complex software project you completed during your three-plus years of development experience?",
+            "reason": "The role requires a minimum of three years of software development experience.",
             "citations": [
               {
                 "line": 3,
@@ -262,13 +273,13 @@
       "name": "Nontechnical role prep",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 7581,
+      "elapsedMs": 6301,
       "result": {
         "questions": [
           {
             "category": "technical",
-            "question": "Can you describe your process for conducting and synthesizing findings from user interviews and usability tests?",
-            "reason": "The role specifically requires running these research activities.",
+            "question": "Can you describe your process for conducting and synthesizing user interviews and usability tests?",
+            "reason": "The role requires direct experience with these specific research methodologies.",
             "citations": [
               {
                 "line": 2,
@@ -278,13 +289,20 @@
           },
           {
             "category": "technical",
-            "question": "How do you approach creating high-fidelity prototypes in Figma while managing component libraries for accessibility?",
-            "reason": "The role involves both Figma prototyping and maintaining an accessible system.",
+            "question": "What is your workflow for creating high-fidelity prototypes in Figma and how do you organize your design components?",
+            "reason": "The position specifically identifies Figma as the prototyping tool used.",
             "citations": [
               {
                 "line": 3,
                 "quote": "Create Figma prototypes"
-              },
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What strategies do you employ to ensure a design system remains accessible as it scales?",
+            "reason": "Maintaining accessible design systems is a core responsibility listed for this role.",
+            "citations": [
               {
                 "line": 4,
                 "quote": "Maintain an accessible design system."
@@ -292,9 +310,9 @@
             ]
           },
           {
-            "category": "role-specific",
-            "question": "What is your experience collaborating with product managers to align design outputs with product requirements?",
-            "reason": "The position explicitly requires working with product managers.",
+            "category": "behavioral",
+            "question": "Describe a time you had to align design goals with product management requirements; how did you reach a consensus?",
+            "reason": "The role involves direct collaboration with product managers.",
             "citations": [
               {
                 "line": 3,
@@ -303,9 +321,24 @@
             ]
           },
           {
-            "category": "technical",
-            "question": "What specific methodologies or tools do you use to ensure your design system remains accessible to all users?",
-            "reason": "Maintaining an accessible design system is a core duty of this position.",
+            "category": "role-specific",
+            "question": "How do you advocate for user-centric findings when product constraints challenge your design system or usability goals?",
+            "reason": "The role requires balancing user research findings with organizational collaboration.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Run user interviews and usability tests."
+              },
+              {
+                "line": 3,
+                "quote": "work with product managers."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you manage documentation and version control within a design system to ensure team-wide consistency?",
+            "reason": "The role requires the ongoing maintenance of an accessible design system.",
             "citations": [
               {
                 "line": 4,
@@ -320,7 +353,7 @@
       "name": "Irrelevant input safely abstains",
       "passed": true,
       "httpStatus": 200,
-      "elapsedMs": 5020,
+      "elapsedMs": 8036,
       "result": {
         "status": "not_stated",
         "answer": "Not stated in this posting.",

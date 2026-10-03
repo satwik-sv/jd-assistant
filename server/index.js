@@ -21,6 +21,30 @@ app.get("/api/health", (_req, res) =>
 );
 let active = 0;
 app.post(
+  "/api/prep-download",
+  express.urlencoded({ extended: false, limit: "100kb" }),
+  (req, res) => {
+    const origin = req.get("origin");
+    if (origin && origin !== `${req.protocol}://${req.get("host")}`)
+      return res
+        .status(403)
+        .json({ error: "Cross-origin requests are not allowed." });
+    if (
+      typeof req.body?.text !== "string" ||
+      !req.body.text.trim() ||
+      req.body.text.length > 60000
+    )
+      return res
+        .status(400)
+        .json({ error: "No valid preparation text to download." });
+    res
+      .set("Cache-Control", "no-store")
+      .attachment("interview-prep.txt")
+      .type("text/plain")
+      .send(req.body.text);
+  },
+);
+app.post(
   "/api/import",
   express.raw({ type: "application/octet-stream", limit: "5mb" }),
   async (req, res) => {

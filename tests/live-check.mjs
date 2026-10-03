@@ -5,6 +5,9 @@ const jd =
   "Full Stack Engineer\nLocation: Bengaluru, India. Hybrid: three office days per week.\nExperience: 3+ years of software development.\nBuild React applications and Python APIs.\nCollaborate with product managers and designers.\nVisa sponsorship is not available.";
 const checks = [];
 async function check(name, task, body, verify, options = {}) {
+  await new Promise((resolve) =>
+    setTimeout(resolve, Number(process.env.LIVE_TEST_DELAY_MS) || 0),
+  );
   const started = Date.now();
   try {
     const response = await fetch(base + `/api/${task}`, {

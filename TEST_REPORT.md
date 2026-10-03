@@ -16,15 +16,22 @@
 
 ## Executed validation
 
-- 22/22 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, and resume evidence validation.
+- 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
 - 21/21 running-server and real Gemini checks passed: HTTP boundaries, cited answers, absent salary/technology, explicit unavailable sponsorship, compound abstention, injection attempts, changed JD, multiple prep categories and a nontechnical posting. Raw synthetic results: TEST_RESULTS.json.
 - 10/10 additional live checks passed: TXT, DOCX and text-based PDF extraction; blank PDF, corrupt DOC, unsupported and oversized file rejection; missing resume; weak spots; fully matched resume. Raw results: OPTIONAL_TEST_RESULTS.json.
+- Expanded evaluation: 24/25 checks passed across eight fictional, realistic JD/resume pairs and a medium posting. One data-analyst prep response was rejected for an invalid citation; a targeted retry passed, recorded separately rather than changing the original result. Short/medium/long sets produced the appropriate bounded question counts. Raw results: SAMPLE_TEST_RESULTS.json.
+- 6/6 export endpoint checks passed: exact text and Unicode preservation, attachment filename/content type, no-store, and empty, missing, duplicate, excessive and cross-origin inputs. Raw results: DOWNLOAD_TEST_RESULTS.json.
+- Valid legacy DOC extraction also passed using the library maintainers' public test fixture: https://github.com/morungos/node-word-extractor/blob/develop/__tests__/data/test01.doc (fixture is used locally and is not redistributed here).
 - Production build passed. Earlier dependency audit reported zero vulnerabilities; this is not a security audit.
 - Copy prep text exposes questions, reasons and citations in a selectable text field. Responsive checks at 390 × 844 and 1440 × 1000 showed no horizontal overflow.
 - Browser checks: empty posting validation, seven different samples and cycle, grouped source headings, Q&A and missing-fact answers, repeated-question cache, tab result retention, prep generation, citation highlighting, edit/cancel restoration. Updated browser import checks passed for PDF JD, DOCX JD and TXT resume; resume comparison showed Python/PostgreSQL gaps with JD citations and a numbered resume source.
 
 ## Limits
 
-Tests cover representative cases, not every possible document or AI response. Exact-quote checks do not prove semantic entailment. Live Gemini results can change with model behavior and quotas. OpenAI transport is tested with mocks; a paid live OpenAI run was not performed. Legacy DOC corrupt-file handling was checked; extraction from a valid legacy DOC fixture has not yet been verified. Scanned PDFs need OCR, and complex tables/columns may affect extraction order. Review imported text before applying.
+Tests cover representative cases, not every possible document or AI response. Exact-quote checks do not prove semantic entailment. Live Gemini results can change with model behavior and quotas. An initial burst of parallel evaluations hit provider quota; the core and sample checks were rerun with paced requests. One model citation was rejected even on the paced run; the validator's safe rejection is intended but the model-quality check remains marked failed. OpenAI transport is tested with mocks; a paid live OpenAI run was not performed. Scanned PDFs need OCR, and complex tables/columns may affect extraction order. Review imported text before applying. Browser save-to-disk verification was blocked because download permission was declined; the endpoint response and export content were verified before that browser attempt.
+
+## Dataset provenance
+
+All resumes and sample employers are fictional, with intentional evidence gaps. This is not evaluation against real applicants' private resumes. The expanded SRE example uses independently written role patterns informed by the public [GitLab SRE role](https://handbook.gitlab.com/job-description-library/engineering/infrastructure/site-reliability-engineer/). For future role coverage, useful public references include [backend engineering](https://handbook.gitlab.com/job-description-library/engineering/development/backend/) and [product design](https://handbook.gitlab.com/job-description-library/product/product-designer/). Samples are editable input; AI results still come from the real provider.
 
 No sensitive resume was used in evaluation. The submission archive excludes .env, node_modules and generated build files. Reviewers configure their own provider key.

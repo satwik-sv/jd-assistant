@@ -1,0 +1,1307 @@
+{
+  "testedAt": "2026-10-03T13:33:26.445Z",
+  "dataset": "Eight fictional JD/resume pairs and one medium posting; public role patterns inform the longer SRE example.",
+  "passed": 24,
+  "total": 25,
+  "checks": [
+    {
+      "name": "Full-Stack AI Engineer · Meridian Labs / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4711,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Full-Stack AI Engineer · Meridian Labs / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4457,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your experience implementing retrieval-augmented generation and prompt engineering within an LLM-powered application?",
+            "reason": "The role requires designing and evaluating these specific AI features.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Design and evaluate LLM-powered features, including retrieval-augmented generation and prompt engineering."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How have you approached database schema design and API development using PostgreSQL and Python?",
+            "reason": "The position involves working with these specific technologies to develop REST APIs.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Develop REST APIs and work with PostgreSQL and cloud deployment on AWS."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What strategies do you use for monitoring and optimizing the performance of full-stack applications on AWS?",
+            "reason": "The role expects the engineer to own performance improvements and monitoring across the stack.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Own testing, monitoring and performance improvements across the stack."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Could you provide an example of a time you worked with product managers and designers to clarify an ambiguous project requirement?",
+            "reason": "Collaboration with product teams to refine ambiguous needs is a core duty.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Collaborate with product managers and designers to turn ambiguous needs into reliable features."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "How do you approach the process of explaining technical tradeoffs during code reviews to team members?",
+            "reason": "The candidate must be able to communicate tradeoffs and participate in code reviews.",
+            "citations": [
+              {
+                "line": 9,
+                "quote": "Communicate technical tradeoffs clearly and participate in thoughtful code reviews."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you manage your workflow and productivity while balancing the required hybrid office schedule?",
+            "reason": "The role mandates a hybrid work arrangement with three days in the office.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Hybrid: three days per week in the office."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Full-Stack AI Engineer · Meridian Labs / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 2394,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "LLM-powered features",
+            "reason": "The resume does not demonstrate experience in designing or evaluating LLM-powered features, such as RAG or prompt engineering.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Design and evaluate LLM-powered features, including retrieval-augmented generation and prompt engineering."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Cloud infrastructure (AWS)",
+            "reason": "The resume does not demonstrate experience with cloud deployment on AWS.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "work with PostgreSQL and cloud deployment on AWS."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "PostgreSQL database management",
+            "reason": "The resume does not demonstrate production experience with PostgreSQL.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "work with PostgreSQL and cloud deployment on AWS."
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Junior Frontend Developer · Cedar Digital / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 2738,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Junior Frontend Developer · Cedar Digital / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 2815,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe a project where you implemented responsive design using CSS layouts?",
+            "reason": "The role specifically requires proficiency in CSS layouts for building interfaces.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Required: Git, CSS layouts and a basic understanding of web accessibility."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How have you handled browser compatibility issues in your past React projects?",
+            "reason": "The position explicitly lists fixing browser compatibility issues as a core duty.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "fix browser compatibility issues."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you approach testing your React components using React Testing Library?",
+            "reason": "The role requires writing component tests with this specific framework.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Write component tests with React Testing Library"
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "Could you walk us through a time you translated a Figma design into a reusable component?",
+            "reason": "Translating Figma designs into reusable components is a listed responsibility.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Translate Figma designs into reusable components"
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you approach integrating REST APIs into frontend applications?",
+            "reason": "Integrating REST APIs is a listed duty for this position.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "integrate REST APIs."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Describe a time you had to justify your technical implementation choices during a code review.",
+            "reason": "The role involves working with senior engineers and explaining implementation choices.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "explain your implementation choices in code reviews."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Junior Frontend Developer · Cedar Digital / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4740,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Component Testing",
+            "reason": "The resume does not demonstrate experience with React Testing Library or writing unit/component tests.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Write component tests with React Testing Library"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Web Accessibility",
+            "reason": "The resume does not demonstrate understanding of web accessibility standards or practices.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 8,
+                "quote": "a basic understanding of web accessibility"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Browser Compatibility",
+            "reason": "The resume does not demonstrate experience with identifying or fixing cross-browser compatibility issues.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "fix browser compatibility issues"
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Senior Backend Engineer · Harbor Systems / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 13166,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Senior Backend Engineer · Harbor Systems / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 8161,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe a challenging distributed system issue you resolved while working with Java, Spring Boot, and PostgreSQL?",
+            "reason": "The role requires designing APIs and background jobs using this specific tech stack.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Design reliable APIs and background jobs with Java, Spring Boot and PostgreSQL."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you approach optimizing database performance and observability in a high-traffic production environment?",
+            "reason": "The role explicitly requires improving these areas within distributed systems.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Improve distributed-system resilience, database performance and observability."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What strategies do you employ when mentoring junior engineers during architectural reviews to ensure clear tradeoff analysis?",
+            "reason": "Mentorship and leading architectural reviews are key responsibilities for this position.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Mentor engineers and lead architectural reviews with clear tradeoff analysis."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you share an experience where you led the response to a critical production incident while on-call?",
+            "reason": "The role involves taking part in a shared on-call rotation and requires incident response experience.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "incident response"
+              },
+              {
+                "line": 6,
+                "quote": "take part in a shared on-call rotation."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What is your experience in managing message queues and ensuring reliability in containerized deployments on AWS?",
+            "reason": "Experience with message queues and AWS container deployment is a stated requirement.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "experience with message queues."
+              },
+              {
+                "line": 6,
+                "quote": "Deploy containerized services on AWS"
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Could you provide an example of a production service you owned from design through deployment and maintenance?",
+            "reason": "The role requires previous experience with ownership of production services.",
+            "citations": [
+              {
+                "line": 3,
+                "quote": "6+ years of backend development, including ownership of production services."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Senior Backend Engineer · Harbor Systems / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 6722,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Cloud infrastructure and AWS",
+            "reason": "The resume does not demonstrate specific experience with AWS or cloud-based deployment environments required by the role.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Deploy containerized services on AWS"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Incident response and on-call",
+            "reason": "The resume does not demonstrate professional experience participating in on-call rotations or managing formal incident response processes.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "take part in a shared on-call rotation"
+              },
+              {
+                "line": 8,
+                "quote": "incident response"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Message queues",
+            "reason": "The resume does not demonstrate hands-on experience with message queue technologies.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 8,
+                "quote": "experience with message queues"
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Data Analyst · Orchard Retail / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 1342,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Data Analyst · Orchard Retail / prep",
+      "passed": false,
+      "httpStatus": 400,
+      "elapsedMs": 9410,
+      "result": {
+        "error": "The AI returned a citation that does not match the posting. Try again."
+      }
+    },
+    {
+      "name": "Data Analyst · Orchard Retail / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 7281,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Power BI dashboard development",
+            "reason": "The resume does not demonstrate experience building Power BI dashboards; prepare to discuss your experience with data visualization tools beyond spreadsheets.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Build Power BI dashboards"
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Product Manager · Beacon Health / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4172,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Product Manager · Beacon Health / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 3350,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe a process you use to translate complex customer feedback into structured product requirements?",
+            "reason": "The role requires the ability to interview customers and translate their needs into requirements.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Interview customers and translate their needs into clear product requirements."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you define success metrics for new features in healthcare-related software?",
+            "reason": "The role specifically requires defining success metrics and evaluating experiments.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Define success metrics, evaluate experiments and communicate product decisions."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How have you navigated prioritizing competing needs when building a product roadmap?",
+            "reason": "The posting mandates experience in prioritizing competing needs as a core requirement.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Required: stakeholder management, user research and experience prioritizing competing needs."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What strategies have you employed to manage cross-functional collaboration with compliance teams?",
+            "reason": "The role involves working directly with design, engineering, and compliance teams.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Work with design, engineering and compliance teams to deliver releases."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Describe a time you had to influence stakeholders who disagreed with your product roadmap priorities.",
+            "reason": "Stakeholder management is explicitly listed as a required skill for this position.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Required: stakeholder management, user research and experience prioritizing competing needs."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you provide an example of how you have conducted user research to inform your product strategy?",
+            "reason": "User research is a specified requirement for the product manager role.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Required: stakeholder management, user research and experience prioritizing competing needs."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Product Manager · Beacon Health / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4237,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Compliance team collaboration",
+            "reason": "The resume highlights collaboration with engineering, design, and operations, but lacks mention of compliance teams.",
+            "status": "partially_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Work with design, engineering and compliance teams to deliver releases."
+              }
+            ],
+            "resumeCitations": [
+              {
+                "line": 4,
+                "quote": "Prioritized roadmap items with engineering, design and operations stakeholders."
+              }
+            ]
+          },
+          {
+            "topic": "Patient communication tools",
+            "reason": "The resume specifies experience with appointment-booking software but does not demonstrate experience with patient communication tools.",
+            "status": "partially_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Prioritize a roadmap for appointment booking and patient communication tools."
+              }
+            ],
+            "resumeCitations": [
+              {
+                "line": 2,
+                "quote": "Experience: 4 years managing appointment-booking software."
+              }
+            ]
+          },
+          {
+            "topic": "Evaluating experiments",
+            "reason": "The resume demonstrates tracking metrics and completion rates, but not explicitly the evaluation of experiments.",
+            "status": "partially_demonstrated",
+            "jdCitations": [
+              {
+                "line": 7,
+                "quote": "evaluate experiments"
+              }
+            ],
+            "resumeCitations": [
+              {
+                "line": 6,
+                "quote": "Defined adoption metrics and tracked booking completion rates."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "DevOps Engineer · Atlas Cloud / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4673,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "DevOps Engineer · Atlas Cloud / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 8730,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your experience managing Kubernetes clusters and using Terraform for infrastructure as code?",
+            "reason": "The role specifically requires managing Kubernetes and using Terraform for IaC.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Manage Kubernetes clusters and infrastructure as code with Terraform."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How have you utilized Prometheus and Grafana for monitoring services in your previous roles?",
+            "reason": "The posting mandates monitoring services using these specific tools.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Monitor services with Prometheus and Grafana"
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What specific AWS services have you used to build CI/CD pipelines and improve deployment reliability?",
+            "reason": "The role involves building pipelines and improving reliability specifically on AWS.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Build CI/CD pipelines and improve deployment reliability on AWS."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you typically approach collaborating with developers to reduce operational toil and improve security?",
+            "reason": "The posting highlights collaboration with developers as a key responsibility for security and toil reduction.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Collaborate with developers to improve security and reduce operational toil."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "Are you comfortable with the requirement to perform occasional scheduled evening maintenance?",
+            "reason": "The role explicitly lists this as a required schedule component.",
+            "citations": [
+              {
+                "line": 9,
+                "quote": "Occasional scheduled evening maintenance is required."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you provide an example of how you have participated in incident response?",
+            "reason": "Incident response is a stated responsibility for the position.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "participate in incident response."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "DevOps Engineer · Atlas Cloud / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 3402,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Kubernetes management",
+            "reason": "The resume does not demonstrate experience managing Kubernetes clusters as required by the JD. Prepare to discuss your approach to orchestrating containerized workloads.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 4,
+                "quote": "Manage Kubernetes clusters"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Infrastructure as Code",
+            "reason": "The resume does not demonstrate experience with Terraform or other infrastructure as code tools. Prepare to provide examples of using automation for provisioning.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 4,
+                "quote": "infrastructure as code with Terraform"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Monitoring tools",
+            "reason": "The resume does not demonstrate proficiency with Prometheus and Grafana. Prepare to explain your experience using these specific tools for service observability.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Monitor services with Prometheus and Grafana"
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "UX Designer · Studio North / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 1356,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "UX Designer · Studio North / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 5087,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your experience creating and maintaining accessible components within a design system?",
+            "reason": "The role specifically requires maintenance of a design system with accessible components.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Maintain a design system with accessible components and documented patterns."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you approach planning and executing usability tests for mobile-specific products?",
+            "reason": "The role involves planning usability tests for a mobile learning product.",
+            "citations": [
+              {
+                "line": 4,
+                "quote": "Plan user interviews and usability tests for a mobile learning product."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "Could you walk us through a project in your portfolio that showcases your interaction design process in Figma?",
+            "reason": "Figma proficiency and portfolio evidence of interaction design are key requirements.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Create wireframes and interactive prototypes in Figma."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Tell us about a time you had to balance user needs with technical delivery constraints while working with developers.",
+            "reason": "The role requires active collaboration with product managers and developers to navigate these specific trade-offs.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Work with product managers and developers to balance user needs with delivery constraints."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "Given this is a six-month contract role, how do you typically approach onboarding and hitting the ground running in a new team?",
+            "reason": "The position is clearly defined as a fixed-term contract of six months.",
+            "citations": [
+              {
+                "line": 9,
+                "quote": "This is a six-month contract with a possible extension."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you manage your workflow and collaboration effectively given our hybrid schedule of three days per week in the office?",
+            "reason": "The role requires adherence to a specific hybrid work arrangement.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Hybrid, three office days per week."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "UX Designer · Studio North / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4956,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Design systems",
+            "reason": "The resume does not demonstrate experience maintaining or contributing to a design system.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Maintain a design system with accessible components and documented patterns."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Accessibility",
+            "reason": "The resume does not demonstrate specific experience incorporating accessibility standards into designs.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Maintain a design system with accessible components and documented patterns."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "User research planning",
+            "reason": "The resume mentions interviewing users, but does not detail experience in the planning stage of user interviews and usability tests.",
+            "status": "partially_demonstrated",
+            "jdCitations": [
+              {
+                "line": 4,
+                "quote": "Plan user interviews and usability tests for a mobile learning product."
+              }
+            ],
+            "resumeCitations": [
+              {
+                "line": 4,
+                "quote": "Interviewed users and iterated a mobile learning flow after usability tests."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Senior Site Reliability Engineer · Atlas Cloud / absence",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4715,
+      "result": {
+        "status": "not_stated",
+        "answer": "Not stated in this posting.",
+        "citations": []
+      }
+    },
+    {
+      "name": "Senior Site Reliability Engineer · Atlas Cloud / prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 6328,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you describe your experience in troubleshooting DNS, TLS, and network connectivity issues in production?",
+            "reason": "The role specifically requires proficiency in troubleshooting these core networking components.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "Troubleshoot DNS, TLS, load balancers and network connectivity."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How have you managed Kubernetes clusters and implemented strategies to improve deployment safety?",
+            "reason": "The candidate needs to demonstrate operational experience with Kubernetes as part of the daily tasks.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Operate Kubernetes clusters and improve deployment safety."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What is your process for managing infrastructure as code using Terraform within an AWS environment?",
+            "reason": "Terraform and AWS are identified as the core infrastructure management tools for the role.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Manage infrastructure as code with Terraform on AWS."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "Which automation tasks have you performed using Python or Bash to reduce repetitive operational work?",
+            "reason": "The position requires automating operational tasks to improve efficiency.",
+            "citations": [
+              {
+                "line": 9,
+                "quote": "Automate repetitive operational tasks using Python or Bash."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How have you utilized Prometheus and Grafana to build actionable monitoring for distributed services?",
+            "reason": "Monitoring tools are explicit requirements for the reliability work described.",
+            "citations": [
+              {
+                "line": 11,
+                "quote": "Build actionable monitoring with Prometheus and Grafana."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What approaches have you taken to tune PostgreSQL performance and ensure high-availability?",
+            "reason": "Database operations specifically involving PostgreSQL are a core technical expectation.",
+            "citations": [
+              {
+                "line": 16,
+                "quote": "Tune PostgreSQL performance and support high-availability database operations."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "How do you approach writing blameless post-incident reviews after a system failure?",
+            "reason": "The role involves conducting post-incident reviews as a standard practice.",
+            "citations": [
+              {
+                "line": 14,
+                "quote": "Write blameless post-incident reviews and track corrective actions."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you provide an example of how you mentor other engineers during technical design reviews?",
+            "reason": "Mentorship is explicitly listed as a responsibility for this senior role.",
+            "citations": [
+              {
+                "line": 22,
+                "quote": "Mentor engineers and explain technical tradeoffs in design reviews."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "How do you manage your communication when working asynchronously on incidents or project progress?",
+            "reason": "The role requires clear communication within an asynchronous work environment.",
+            "citations": [
+              {
+                "line": 23,
+                "quote": "Work asynchronously and communicate progress and incidents clearly."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you approach defining service-level objectives (SLOs) and error-budget policies with product teams?",
+            "reason": "This is a fundamental aspect of the SRE role as defined in the job description.",
+            "citations": [
+              {
+                "line": 10,
+                "quote": "Define service-level objectives and error-budget policies with product teams."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What is your strategy for planning disaster recovery exercises and validating backup restoration processes?",
+            "reason": "The candidate is expected to lead planning for disaster recovery efforts.",
+            "citations": [
+              {
+                "line": 15,
+                "quote": "Plan disaster recovery exercises and validate backup restoration."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you design staged deployment rollouts and rollback plans to ensure safe infrastructure changes?",
+            "reason": "The position requires creating change management plans for deployment safety.",
+            "citations": [
+              {
+                "line": 17,
+                "quote": "Design safe change rollouts using staged deployment and rollback plans."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you evaluate infrastructure cost and capacity trends to ensure sustainability?",
+            "reason": "Capacity and cost management are specifically requested responsibilities.",
+            "citations": [
+              {
+                "line": 18,
+                "quote": "Measure capacity trends and plan sustainable infrastructure costs."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What is your process for maintaining runbooks to ensure they are useful for system diagnosis and recovery?",
+            "reason": "The role requires the maintenance of documentation used for operational recovery.",
+            "citations": [
+              {
+                "line": 21,
+                "quote": "Maintain runbooks that explain diagnosis and recovery steps."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you collaborate with developers to identify reliability risks prior to a service release?",
+            "reason": "The role emphasizes proactive collaboration with developers to mitigate risks.",
+            "citations": [
+              {
+                "line": 20,
+                "quote": "Collaborate with developers to identify reliability risks before releases."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Senior Site Reliability Engineer · Atlas Cloud / resume",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 2335,
+      "result": {
+        "weakSpots": [
+          {
+            "topic": "Distributed systems networking and protocol troubleshooting",
+            "reason": "The resume does not demonstrate specific experience troubleshooting DNS, TLS, or network connectivity issues.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Troubleshoot DNS, TLS, load balancers and network connectivity."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Database performance and high-availability operations",
+            "reason": "The resume does not demonstrate experience with database tuning or managing high-availability database operations, specifically PostgreSQL.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 16,
+                "quote": "Tune PostgreSQL performance and support high-availability database operations."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Disaster recovery and backup validation",
+            "reason": "The resume does not demonstrate experience planning disaster recovery exercises or validating the restoration of backups.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 15,
+                "quote": "Plan disaster recovery exercises and validate backup restoration."
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Medium posting / expanded prep",
+      "passed": true,
+      "httpStatus": 200,
+      "elapsedMs": 4676,
+      "result": {
+        "questions": [
+          {
+            "category": "technical",
+            "question": "Can you walk us through your experience building retrieval-augmented generation (RAG) pipelines?",
+            "reason": "The role requires designing and evaluating LLM-powered features including RAG.",
+            "citations": [
+              {
+                "line": 5,
+                "quote": "Design and evaluate LLM-powered features, including retrieval-augmented generation and prompt engineering."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "How do you handle API authentication and authorization in a production environment?",
+            "reason": "The job description specifically tasks the engineer with owning these aspects.",
+            "citations": [
+              {
+                "line": 10,
+                "quote": "Own API authentication and authorization."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "Describe your workflow for deploying and monitoring services on AWS.",
+            "reason": "The role involves cloud deployment on AWS and owning monitoring across the stack.",
+            "citations": [
+              {
+                "line": 6,
+                "quote": "work with PostgreSQL and cloud deployment on AWS."
+              }
+            ]
+          },
+          {
+            "category": "technical",
+            "question": "What strategies do you use to ensure high performance in React applications?",
+            "reason": "Performance improvement is an explicit expectation of the stack.",
+            "citations": [
+              {
+                "line": 8,
+                "quote": "Own testing, monitoring and performance improvements across the stack."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "Can you provide an example of when you had to turn an ambiguous product requirement into a concrete feature?",
+            "reason": "The job requires collaboration with product managers to address ambiguous needs.",
+            "citations": [
+              {
+                "line": 7,
+                "quote": "Collaborate with product managers and designers to turn ambiguous needs into reliable features."
+              }
+            ]
+          },
+          {
+            "category": "behavioral",
+            "question": "How do you approach code reviews when you disagree with a teammate's technical choice?",
+            "reason": "The role requires communicating technical tradeoffs and participating in code reviews.",
+            "citations": [
+              {
+                "line": 9,
+                "quote": "Communicate technical tradeoffs clearly and participate in thoughtful code reviews."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "How do you collaborate with designers to resolve accessibility concerns?",
+            "reason": "The posting mandates investigating accessibility issues in partnership with designers.",
+            "citations": [
+              {
+                "line": 11,
+                "quote": "Investigate accessibility issues with designers."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "What is your approach to documenting complex service architectures and runbooks?",
+            "reason": "Documentation of architecture and runbooks is a documented responsibility.",
+            "citations": [
+              {
+                "line": 12,
+                "quote": "Document service architecture and deployment runbooks."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "Are you comfortable with the hybrid work requirement of three days in the Bengaluru office?",
+            "reason": "The posting specifies a precise hybrid office attendance requirement.",
+            "citations": [
+              {
+                "line": 2,
+                "quote": "Location: Bengaluru, India. Hybrid: three days per week in the office."
+              }
+            ]
+          },
+          {
+            "category": "role-specific",
+            "question": "With 3+ years of experience, how have you balanced frontend and backend responsibilities in your previous roles?",
+            "reason": "The role demands a full-stack engineer with a specific minimum level of professional experience.",
+            "citations": [
+              {
+                "line": 3,
+                "quote": "We are looking for an engineer with 3+ years of professional software development experience."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "targetedRecheck": {
+    "name": "Data Analyst prep after rejected citation",
+    "passed": true,
+    "httpStatus": 200,
+    "result": {
+      "questions": [
+        {
+          "category": "technical",
+          "question": "Can you describe a project where you used SQL and Python to analyze sales trends or customer retention?",
+          "reason": "The role explicitly requires using these tools for these specific analytical tasks.",
+          "citations": [
+            {
+              "line": 4,
+              "quote": "Use SQL and Python to investigate sales trends and customer retention."
+            }
+          ]
+        },
+        {
+          "category": "technical",
+          "question": "How do you approach validating data quality when working with large datasets?",
+          "reason": "Data validation is a key responsibility outlined in the job description.",
+          "citations": [
+            {
+              "line": 6,
+              "quote": "Validate data quality and communicate findings to nontechnical stakeholders."
+            }
+          ]
+        },
+        {
+          "category": "role-specific",
+          "question": "How do you handle documenting metric definitions to ensure consistency across different business teams?",
+          "reason": "The position requires documenting metrics for internal business stakeholders.",
+          "citations": [
+            {
+              "line": 5,
+              "quote": "Build Power BI dashboards and document metric definitions for business teams."
+            }
+          ]
+        },
+        {
+          "category": "role-specific",
+          "question": "Describe a time you collaborated with marketing or operations teams to measure the success of a campaign.",
+          "reason": "Cross-functional partnership with these departments is a core requirement of the role.",
+          "citations": [
+            {
+              "line": 7,
+              "quote": "Partner with marketing and operations to measure campaign outcomes."
+            }
+          ]
+        },
+        {
+          "category": "behavioral",
+          "question": "Can you provide an example of how you have translated complex data findings for a nontechnical audience?",
+          "reason": "Communicating findings to nontechnical stakeholders is a fundamental part of the job.",
+          "citations": [
+            {
+              "line": 6,
+              "quote": "communicate findings to nontechnical stakeholders."
+            }
+          ]
+        },
+        {
+          "category": "technical",
+          "question": "In your previous experience, how have you utilized basic statistics to inform business decisions?",
+          "reason": "Basic statistics is explicitly listed as a required skill for this position.",
+          "citations": [
+            {
+              "line": 8,
+              "quote": "Required: Excel, SQL joins, basic statistics and clear written communication."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

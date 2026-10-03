@@ -61,6 +61,9 @@ async function check(
   headers = { "Content-Type": "application/json" },
 ) {
   try {
+    await new Promise((resolve) =>
+      setTimeout(resolve, Number(process.env.LIVE_TEST_DELAY_MS) || 0),
+    );
     const r = await fetch("http://localhost:3000/api/" + path, {
       method: "POST",
       headers,
