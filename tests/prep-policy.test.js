@@ -6,6 +6,8 @@ import {
   SAMPLE_RESUMES,
   SAMPLE_RESUME_VARIANTS,
   RESUME_MATCH_LEVELS,
+  SAMPLE_RESUME_POOLS,
+  selectSampleResume,
 } from "../src/sample-resumes.js";
 import { readDocument, validateResult, generate } from "../server/grounding.js";
 test("Prep budget grows with meaningful content and is capped at fifteen", () => {
@@ -122,4 +124,27 @@ test("Resume comparison instructions exclude employment logistics from skill gap
       };
     },
   });
+});
+
+test("Repeated sample loading rotates evidence histories and safely wraps", () => {
+  const all = [];
+  for (let role = 0; role < 8; role++)
+    for (const profile of RESUME_MATCH_LEVELS) {
+      const pool = SAMPLE_RESUME_POOLS[role][profile];
+      assert.equal(new Set(pool).size, 3);
+      all.push(...pool);
+      for (let sequence = 0; sequence < 3; sequence++) {
+        const picked = selectSampleResume(role, profile, sequence);
+        assert.equal(picked.text, pool[sequence]);
+        assert.equal(picked.example, sequence + 1);
+        assert.equal(picked.total, 3);
+      }
+      assert.equal(selectSampleResume(role, profile, 3).text, pool[0]);
+      if (profile !== "strong")
+        assert.ok(pool[1].split("\n").length > pool[0].split("\n").length);
+    }
+  assert.equal(new Set(all).size, 72);
+  assert.throws(() => selectSampleResume(99, "strong"));
+  assert.throws(() => selectSampleResume(0, "unknown"));
+  assert.throws(() => selectSampleResume(0, "strong", -1));
 });

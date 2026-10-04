@@ -951,3 +951,68 @@ header {
   background: white;
   margin-bottom: 10px;
 }
+
+.sample-resume-controls {
+  background: linear-gradient(140deg, #f5f8ff, #fff);
+  padding: 18px;
+}
+.sample-resume-controls h4 {
+  margin: 8px 0 14px;
+  color: #243650;
+  font-size: 18px;
+}
+.profile-options {
+  border: 0;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 9px;
+}
+.profile-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #dce5f5;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+}
+.profile-option.active {
+  border-color: #2563eb;
+  background: #eef4ff;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+.profile-option:focus-within {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+.profile-option input {
+  margin: 3px 0 0;
+  accent-color: #2563eb;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.profile-option strong {
+  font-size: 14px;
+  color: #243650;
+}
+.profile-option small {
+  display: block;
+  margin-top: 4px;
+  color: #62728c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

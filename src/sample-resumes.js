@@ -156,3 +156,99 @@ export const SAMPLE_RESUME_VARIANTS = SAMPLE_RESUMES.map((partial, index) => ({
     "EDUCATION: Undergraduate degree and independent portfolio projects. Fictional demonstration only.",
   ].join("\n"),
 }));
+
+// Three evidence histories per role/profile. Ordered rotation avoids immediate repeats.
+export const RESUME_PROFILE_OPTIONS = [
+  {
+    value: "strong",
+    label: "Strong match",
+    description: "Relevant skills and project evidence",
+  },
+  {
+    value: "partial",
+    label: "Partial match",
+    description: "Related experience with some gaps",
+  },
+  {
+    value: "career-change",
+    label: "Career change",
+    description: "Transferable skills from another role",
+  },
+];
+export const SAMPLE_RESUME_POOLS = SAMPLE_RESUME_VARIANTS.map(
+  (profiles, role) =>
+    Object.fromEntries(
+      RESUME_MATCH_LEVELS.map((level) => {
+        const base = profiles[level];
+        const strongBullets = profiles.strong.split("\n").slice(3, -1);
+        const baseLines = base.split("\n");
+        const projects = [
+          "customer onboarding",
+          "subscription management",
+          "operations reporting",
+        ];
+        const examples = [0, 1, 2].map((version) => {
+          const lines = [...baseLines];
+          if (version > 0 && level !== "strong") {
+            // Add different demonstrated skills, so the comparison evidence changes too.
+            lines.splice(
+              3,
+              0,
+              strongBullets[(version - 1) % strongBullets.length],
+            );
+          }
+          let body = lines.join("\n");
+          body = body.replace(
+            /Example employer/g,
+            [
+              "Fictional Cedar Works",
+              "Fictional Harbor Products",
+              "Fictional Orchard Systems",
+            ][version],
+          );
+          body = body.replace(
+            /support portal|booking flow|billing APIs|retail sales|appointment-booking|cloud infrastructure|mobile learning product|customer-facing services/g,
+            (match) =>
+              version === 0
+                ? match
+                : match +
+                  " for a " +
+                  ["", "subscription platform", "operations platform"][version],
+          );
+          body = body.replace(
+            /18%|34 component|120-case|650 ms|310 ms|12 user|9%|3%/g,
+            (match) =>
+              version === 0
+                ? match
+                : {
+                    "18%": version === 1 ? "22%" : "15%",
+                    "34 component":
+                      version === 1 ? "28 component" : "41 component",
+                    "120-case": version === 1 ? "90-case" : "160-case",
+                    "650 ms": version === 1 ? "720 ms" : "580 ms",
+                    "310 ms": version === 1 ? "340 ms" : "260 ms",
+                    "12 user": version === 1 ? "9 user" : "15 user",
+                    "9%": version === 1 ? "8%" : "11%",
+                    "3%": version === 1 ? "2%" : "4%",
+                  }[match],
+          );
+          return (
+            body +
+            "\nPROJECT CONTEXT: " +
+            projects[version] +
+            "; worked with a designer and operations stakeholders on a documented delivery cycle.\nDEMO EXAMPLE: " +
+            (version + 1) +
+            " of 3; fictional history for comparison practice."
+          );
+        });
+        return [level, examples];
+      }),
+    ),
+);
+export function selectSampleResume(role, profile, sequence = 0) {
+  const pool = SAMPLE_RESUME_POOLS[role]?.[profile];
+  if (!pool || !Number.isInteger(sequence) || sequence < 0)
+    throw new Error("Invalid sample resume selection.");
+  const index = sequence % pool.length;
+  return { text: pool[index], example: index + 1, total: pool.length };
+}

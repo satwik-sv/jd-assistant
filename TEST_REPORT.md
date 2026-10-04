@@ -26,6 +26,11 @@
 - All 28 automated tests passed, including profile evidence differentiation and comparison prompt checks. Production build passed.
 - Live frontend-role testing initially exposed false gaps for on-site attendance and for 1 year against a 0–2 year requirement. Updated comparison instructions exclude employment logistics and accept experience within a stated range. The targeted strong-profile retry then returned no clear evidence gaps. The partial profile returned cited gaps for testing, browser compatibility and accessibility. Career change returned different cited gaps for React, API integration and Figma-to-component work. The custom-JD guard also passed: sample loading disables when the built-in posting is edited. Results are recorded in RESUME_PROFILE_TEST_RESULTS.json. These checks are examples, not a guarantee of every AI response.
 
+## Resume card and rotation update — 4 October 2026
+
+- Profile cards use native labeled radio inputs, visible selection and keyboard navigation. Added three rotating examples per role/profile (72 total), with per-profile counters and explicit wrap messaging. Partial and career-change histories add different evidence as well as changing context; strong profiles retain core role skills.
+- All 29 automated tests passed, including unique pools, consecutive rotation, wrap and invalid selection. Build passed. Browser checks passed for three distinct consecutive loads, returning to the first after three, profile selection by keyboard, and no horizontal overflow at 390 pixels. Existing live reports cover earlier samples; all 72 rotated examples have not been evaluated with the model.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
