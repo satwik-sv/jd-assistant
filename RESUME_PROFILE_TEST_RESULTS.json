@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-04",
+  "provider": "gemini",
+  "scope": "Three frontend profiles; targeted results after prompt fixes; no claim of exhaustive semantic evaluation",
+  "results": [
+    {
+      "profile": "strong",
+      "role": "Junior Frontend Developer",
+      "result": "No clear evidence gaps were found for this posting."
+    },
+    {
+      "profile": "partial",
+      "role": "Junior Frontend Developer",
+      "result": "Likely weak spots\nEdit resume\n\nGaps in what your resume demonstrates, not a judgment of your ability.\n\nCompare again\nComponent Testing\nNot demonstrated in resume\n\nThe resume does not demonstrate experience writing tests with React Testing Library. Preparation: learn to write unit tests for your existing React components.\n\nL06\n“Write component tests with React Testing Library”\n\nNo matching resume evidence identified.\n\nBrowser Compatibility\nNot demonstrated in resume\n\nThe resume does not demonstrate experience identifying or fixing cross-browser compatibility issues. Preparation: review common browser bugs and debugging techniques.\n\nL06\n“fix browser compatibility issues”\n\nNo matching resume evidence identified.\n\nWeb Accessibility\nNot demonstrated in resume\n\nThe resume does not demonstrate a basic understanding of web accessibility requirements. Preparation: review WCAG guidelines and implementation of ARIA roles.\n\nL08\n“basic understanding of web accessibility”\n\nNo matching resume evidence identified.\n\nView numbered resume source"
+    },
+    {
+      "profile": "career-change",
+      "role": "Junior Frontend Developer",
+      "result": "Likely weak spots\nEdit resume\n\nGaps in what your resume demonstrates, not a judgment of your ability.\n\nCompare again\nReact Framework Proficiency\nNot demonstrated in resume\n\nThe resume does not demonstrate professional or project experience with React, which is a core requirement for the role.\n\nL04\n“Build accessible, responsive interfaces with React”\n\nNo matching resume evidence identified.\n\nAPI Integration\nNot demonstrated in resume\n\nThe resume does not demonstrate experience integrating REST APIs into front-end applications.\n\nL05\n“integrate REST APIs”\n\nNo matching resume evidence identified.\n\nDesign-to-Code Implementation\nNot demonstrated in resume\n\nThe resume does not demonstrate the ability to translate Figma designs into reusable components as required.\n\nL05\n“Translate Figma designs into reusable components”\n\nNo matching resume evidence identified.\n\nView numbered resume source"
+    }
+  ]
+}

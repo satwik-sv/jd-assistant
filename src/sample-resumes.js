@@ -6,8 +6,7 @@ Skills: React, TypeScript, Python, REST APIs, Git and component testing.
 Built a React onboarding flow and Python API, reducing manual support requests.
 Partnered with product managers and designers to clarify requirements.
 Reviewed pull requests and added tests for critical user journeys.
-Education: BTech in Computer Science.
-Preparation focus: the resume does not document LLM evaluation, AWS or PostgreSQL production ownership.`,
+Education: BTech in Computer Science.`,
   `Demo candidate — Junior Frontend Developer
 Experience: 1 year of frontend development and portfolio projects.
 Skills: React, JavaScript, HTML, CSS, Git and REST API integration.
@@ -84,3 +83,76 @@ Mentor engineers and explain technical tradeoffs in design reviews.
 Work asynchronously and communicate progress and incidents clearly.
 Required: production troubleshooting, automation and ownership of operational changes.
 This is a full-time role. Compensation is not specified in this example.`;
+
+// Synthetic work histories: these are demo evidence, never personal credentials.
+export const RESUME_MATCH_LEVELS = ["strong", "partial", "career-change"];
+export const SAMPLE_RESUME_VARIANTS = SAMPLE_RESUMES.map((partial, index) => ({
+  strong: [
+    "Fictional candidate — " +
+      [
+        "Full-Stack AI Engineer",
+        "Junior Frontend Developer",
+        "Senior Backend Engineer",
+        "Data Analyst",
+        "Product Manager",
+        "DevOps Engineer",
+        "UX Designer",
+        "Site Reliability Engineer",
+      ][index],
+    "PROFILE: " +
+      [
+        "4 years",
+        "1 year",
+        "7 years",
+        "3 years",
+        "5 years",
+        "4 years",
+        "3 years",
+        "6 years",
+      ][index] +
+      " of relevant professional experience",
+    "WORK EXPERIENCE: Example employer | Product delivery team",
+    [
+      "Built a React and TypeScript support portal backed by Python REST APIs and PostgreSQL; reduced repeat support tickets by 18%.\nShipped a retrieval-augmented generation assistant with prompt versioning, a 120-case evaluation set and regression checks for unsupported answers.\nDeployed services on AWS with CloudWatch monitoring; profiled slow queries and reduced API p95 latency from 650 ms to 310 ms.\nPartnered with designers and product managers on ambiguous requirements, wrote integration tests and explained rollout tradeoffs in code reviews.",
+      "Built accessible React interfaces with JavaScript, semantic HTML and CSS Grid from Figma designs; integrated REST APIs for a booking flow.\nWrote 34 component tests with React Testing Library covering validation, loading and error states.\nTested keyboard navigation, focus management and screen-reader labels against basic WCAG accessibility checks.\nFixed Safari flexbox and Firefox form layout issues; used Git pull requests and explained implementation choices to senior engineers and designers.\nPortfolio: responsive checkout and event registration projects with documented tests and review feedback.",
+      "Owned Java and Spring Boot billing APIs, PostgreSQL schemas and asynchronous background jobs using RabbitMQ message queues.\nAdded retries, idempotency and circuit breakers; improved distributed-system resilience and reduced slow queries using execution plans.\nDeployed Docker services on AWS, built traces and dashboards for observability and joined the production on-call rotation.\nLed incident response and follow-up fixes; maintained JUnit and integration tests and mentored two engineers through architectural reviews.",
+      "Used SQL joins, Python and Excel to analyze retail sales trends, customer retention and marketing campaign outcomes.\nBuilt Power BI dashboards with documented metric definitions and automated data-quality checks for missing and duplicate records.\nUsed basic statistics to compare campaign cohorts and communicated uncertainty and findings to marketing and operations teams.\nPublished clear written analysis notes and reusable SQL queries for weekly business reporting.",
+      "Managed appointment-booking and patient communication software for five years; interviewed customers and wrote clear requirements and acceptance criteria.\nPrioritized competing stakeholder needs in a quarterly roadmap, working with design, engineering and compliance teams on releases.\nDefined booking completion and message response metrics; evaluated experiments before choosing roadmap changes.\nUsed research findings and adoption data to explain product decisions and resolve delivery tradeoffs with stakeholders.",
+      "Operated AWS infrastructure for four years with Linux, networking, Bash scripting, IAM access controls and credential rotation.\nManaged Kubernetes clusters and Terraform infrastructure; built CI/CD pipelines with staged rollout and rollback checks.\nCreated Prometheus alerts and Grafana dashboards; responded to incidents and reduced deployment failures from 9% to 3%.\nWorked with developers to improve security and automate maintenance, including scheduled evening changes.",
+      "Designed a mobile learning product for three years using Figma wireframes and interactive prototypes.\nPlanned 12 user interviews and repeated usability tests; used findings to simplify lesson navigation and iterate interaction design.\nMaintained a design system with accessible contrast, focus states and documented component patterns.\nWorked with product managers and developers on delivery constraints; portfolio case studies show research, prototypes, decisions and iterations.",
+      "Owned availability, latency and capacity for AWS customer-facing services for six years; debugged Linux, DNS, TLS and load-balancer failures.\nOperated Kubernetes and Terraform, automated operational work in Python and Bash and used staged deployments with tested rollback plans.\nDefined service-level objectives and error-budget policies with product teams; built Prometheus and Grafana monitoring and distributed logging and tracing.\nJoined on-call incident response, wrote blameless post-incident reviews, updated runbooks and tracked corrective actions.\nRan disaster recovery and backup restoration exercises; tuned PostgreSQL and managed high-availability failover.\nPlanned capacity and infrastructure costs, reviewed access controls and rotated service credentials.\nMentored engineers, reviewed reliability risks with developers and communicated tradeoffs and incident progress asynchronously.",
+    ][index],
+    "EDUCATION: Relevant undergraduate degree. All names, work histories and metrics in this sample are fictional.",
+  ].join("\n"),
+  partial:
+    partial
+      .replace("Demo candidate", "Fictional candidate")
+      .replace("Education:", "EDUCATION:") +
+    "\nWork context: Example employer | Cross-functional product team. Fictional demonstration only.",
+  "career-change": [
+    "Fictional candidate — Transitioning to " +
+      [
+        "Full-Stack AI Engineer",
+        "Junior Frontend Developer",
+        "Senior Backend Engineer",
+        "Data Analyst",
+        "Product Manager",
+        "DevOps Engineer",
+        "UX Designer",
+        "Site Reliability Engineer",
+      ][index],
+    "PROFILE: Early experience in an adjacent role",
+    "WORK EXPERIENCE: Example employer | Associate",
+    [
+      "Built a JavaScript customer support dashboard and Node.js REST endpoints using SQLite. Wrote unit tests and collaborated with a product designer.",
+      "Created HTML and CSS landing pages and a JavaScript shopping cart. Used Git for portfolio revisions and received design feedback.",
+      "Maintained Python reporting APIs and MySQL queries. Wrote unit tests and supported routine releases with a senior engineer.",
+      "Prepared Excel sales summaries, checked duplicate entries and presented weekly trends to a store operations team.",
+      "Coordinated customer support releases, tracked delivery tasks and collected user feedback for engineering teams.",
+      "Maintained Linux servers, wrote Bash backup scripts and supported manual deployments in an internal staging environment.",
+      "Created branding assets and landing page mockups in Figma, incorporating feedback from marketing stakeholders.",
+      "Supported Linux servers, maintained Bash scripts and escalated incidents using existing runbooks.",
+    ][index],
+    "EDUCATION: Undergraduate degree and independent portfolio projects. Fictional demonstration only.",
+  ].join("\n"),
+}));

@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 import { sourceLabel } from "./source-label.js";
 import { prepBudget } from "./prep-policy.js";
-import { SAMPLE_RESUMES } from "./sample-resumes.js";
+import { SAMPLE_RESUME_VARIANTS } from "./sample-resumes.js";
 function App() {
   const [jd, setJd] = useState(""),
     [document, setDocument] = useState(null),
@@ -14,6 +14,8 @@ function App() {
     [history, setHistory] = useState([]),
     [prep, setPrep] = useState(null),
     [resume, setResume] = useState(""),
+    [sampleRole, setSampleRole] = useState(null),
+    [resumeMatch, setResumeMatch] = useState("strong"),
     [activeResume, setActiveResume] = useState(""),
     [gaps, setGaps] = useState(null),
     [importNotice, setImportNotice] = useState(""),
@@ -394,7 +396,12 @@ function App() {
                     disabled={Boolean(busy)}
                     onClick={() => {
                       setJd(SAMPLES[sampleIndex.current]);
-                      setResume(SAMPLE_RESUMES[sampleIndex.current]);
+                      setSampleRole(sampleIndex.current);
+                      setResume(
+                        SAMPLE_RESUME_VARIANTS[sampleIndex.current][
+                          resumeMatch
+                        ],
+                      );
                       setImportNotice(
                         "Fictional sample JD and related resume loaded. Edit either before applying.",
                       );
@@ -422,6 +429,46 @@ function App() {
                       onChange={(event) => importFile(event, "resume")}
                     />
                   </label>
+                  <div className="sample-resume-controls">
+                    <label className="field-label" htmlFor="resume-match">
+                      Sample resume profile
+                    </label>
+                    <select
+                      id="resume-match"
+                      value={resumeMatch}
+                      disabled={Boolean(busy)}
+                      onChange={(event) => setResumeMatch(event.target.value)}
+                    >
+                      <option value="strong">Strong match</option>
+                      <option value="partial">Partial match</option>
+                      <option value="career-change">Career change</option>
+                    </select>
+                    <button
+                      className="text-button"
+                      disabled={
+                        Boolean(busy) ||
+                        sampleRole === null ||
+                        jd !== SAMPLES[sampleRole]
+                      }
+                      onClick={() => {
+                        setResume(
+                          SAMPLE_RESUME_VARIANTS[sampleRole][resumeMatch],
+                        );
+                        setImportNotice(
+                          "Fictional " +
+                            resumeMatch.replace("-", " ") +
+                            " resume loaded. Use this posting to apply it.",
+                        );
+                      }}
+                    >
+                      Load matching sample resume
+                    </button>
+                    <p className="small-note">
+                      Choose a profile, then load it to replace the draft
+                      resume. Available for the eight built-in sample JDs; your
+                      uploaded resume stays editable.
+                    </p>
+                  </div>
                   <textarea
                     id="resume"
                     maxLength={24000}
@@ -437,7 +484,7 @@ function App() {
                   </p>
                   <p className="sample-note">
                     Load sample fills both documents with a fictional JD and
-                    related resume. Examples include intentional evidence gaps
+                    related resume. Profiles offer different levels of evidence
                     and never represent your experience.
                   </p>
                 </details>

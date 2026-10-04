@@ -935,3 +935,19 @@ header {
     font-size: 13px;
   }
 }
+
+.sample-resume-controls {
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #dce5f5;
+  border-radius: 10px;
+}
+.sample-resume-controls select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #243650;
+  background: white;
+  margin-bottom: 10px;
+}

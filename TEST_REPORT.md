@@ -20,6 +20,12 @@
 - Browser checks passed: retained resume source, edit disclosure opens with saved text, cancelling preserves source/results, removing a resume clears stale results, tab switching preserves comparison, card and prep shortcuts, and keyboard navigation wraps across three tabs.
 - At a 390-pixel viewport, all three tabs fit with no horizontal page overflow. Production build and all 26 automated tests passed.
 
+## Sample resume profiles — 4 October 2026
+
+- Added 24 fictional resume profiles across eight sample JDs: strong, partial and career change. Strong resumes include concrete role-relevant projects, tools and achievements; samples never claim to be real candidate credentials. Removed the prior explicit preparation-hint line.
+- All 28 automated tests passed, including profile evidence differentiation and comparison prompt checks. Production build passed.
+- Live frontend-role testing initially exposed false gaps for on-site attendance and for 1 year against a 0–2 year requirement. Updated comparison instructions exclude employment logistics and accept experience within a stated range. The targeted strong-profile retry then returned no clear evidence gaps. The partial profile returned cited gaps for testing, browser compatibility and accessibility. Career change returned different cited gaps for React, API integration and Figma-to-component work. The custom-JD guard also passed: sample loading disables when the built-in posting is edited. Results are recorded in RESUME_PROFILE_TEST_RESULTS.json. These checks are examples, not a guarantee of every AI response.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
