@@ -565,6 +565,9 @@ function App() {
                           }
                           title={group.headingText || group.label}
                         >
+                          <span className="source-section-number">
+                            {groupIndex + 1}.
+                          </span>{" "}
                           {group.label}
                           {showSourceNumbers && group.headingLine && (
                             <small> · L{group.headingLine}</small>

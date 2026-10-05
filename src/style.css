@@ -1046,3 +1046,8 @@ header {
 .source-meta .text-button {
   font-size: 12px;
 }
+
+.source-section-number {
+  font-variant-numeric: tabular-nums;
+  margin-right: 3px;
+}
