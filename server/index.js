@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import { randomUUID } from "node:crypto";
 import { readDocument, generate } from "./grounding.js";
 import { fileURLToPath } from "node:url";
 import { extractDocument } from "./file-import.js";
@@ -75,7 +76,7 @@ app.post(
   },
 );
 app.post("/api/:task", async (req, res) => {
-  if (!["ask", "prep", "gaps"].includes(req.params.task))
+  if (!["ask", "prep", "gaps", "resume"].includes(req.params.task))
     return res.status(404).json({ error: "Unknown action." });
   const origin = req.get("origin");
   if (origin && origin !== `${req.protocol}://${req.get("host")}`)
@@ -97,6 +98,13 @@ app.post("/api/:task", async (req, res) => {
         error: "Send a JSON object containing the posting and question.",
       });
     const lines = readDocument(req.body.jd);
+    if (
+      req.params.task === "resume" &&
+      !["strong", "partial", "career-change"].includes(req.body.profile)
+    )
+      return res
+        .status(400)
+        .json({ error: "Choose a valid sample resume profile." });
     let resumeLines = [];
     if (req.params.task === "gaps") {
       if (
@@ -127,6 +135,8 @@ app.post("/api/:task", async (req, res) => {
           model,
           provider,
           resumeLines,
+          profile: req.body.profile,
+          variation: req.params.task === "resume" ? randomUUID() : "",
         }),
       );
     } finally {

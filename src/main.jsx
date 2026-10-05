@@ -144,6 +144,46 @@ function App() {
       setBusy(null);
     }
   }
+  async function loadRelatedResume() {
+    if (busy) return;
+    if (sampleRole >= 0) {
+      loadResumeExample(sampleRole, resumeMatch);
+      return;
+    }
+    if (jd.trim().length < 30) {
+      setError("Add a job description of at least 30 characters first.");
+      return;
+    }
+    setBusy("resume");
+    setError("");
+    setImportNotice("");
+    const controller = new AbortController();
+    pending.current = controller;
+    try {
+      const response = await fetch("/api/resume", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jd, profile: resumeMatch }),
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Could not create the sample resume.");
+      setResume(result.resumeText);
+      setImportNotice(
+        "Fictional sample resume created for your JD. Review it, then click Use this posting. This is not your personal work history.",
+      );
+    } catch (error) {
+      if (error.name !== "AbortError")
+        setError(
+          error instanceof TypeError
+            ? "Could not reach the app server."
+            : error.message,
+        );
+    } finally {
+      setBusy(null);
+    }
+  }
   async function run(task, q = question) {
     if (!document || busy) return;
     setError("");
@@ -459,17 +499,20 @@ function App() {
                       className="sample-button"
                       disabled={
                         Boolean(busy) ||
-                        sampleRole < 0 ||
-                        jd !== SAMPLES[sampleRole]
+                        jd.trim().length < 30 ||
+                        (sampleRole < 0 && !configured)
                       }
-                      onClick={() => loadResumeExample(sampleRole, resumeMatch)}
+                      onClick={loadRelatedResume}
                     >
-                      Load sample resume
+                      {busy === "resume"
+                        ? "Creating resume…"
+                        : "Load sample resume"}
                     </button>
                     <p className="small-note">
-                      Three different work histories per profile. Each click
-                      loads the next example; examples cycle after three. Load a
-                      sample JD first. Your uploaded resume stays editable.
+                      For a pasted JD, AI creates a related fictional resume
+                      using the selected profile. This uses your AI quota.
+                      Built-in JDs rotate through three examples without an AI
+                      call. You can paste or upload a different resume instead.
                     </p>
                   </div>
                   <textarea

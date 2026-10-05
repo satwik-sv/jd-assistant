@@ -41,6 +41,11 @@
 - Load sample JD updates only the JD. Load sample resume updates only the resume and uses the selected profile for a recognized built-in posting. Resume examples still rotate per role/profile.
 - Browser checks passed: a custom draft resume remains unchanged after JD loading; the JD remains identical after resume loading. The original draft documents were restored after checking. Production build passed.
 
+## Custom-JD resume samples — 5 October 2026
+
+- Pasted and imported JDs can create a related fictional sample resume via /api/resume with the selected match profile. The server validates its text length and JD inspiration citations and prepends a mandatory fictional label. Generation consumes provider quota; built-in sample loading stays local. Users may instead paste or upload any resume before applying and comparing.
+- All 33 automated tests and the production build passed. Eight paced live Gemini checks passed: invalid profile and short JD rejection, custom frontend generation and comparison, different backend generation and partial comparison, an unrelated pasted resume with evidence gaps, and a matched pasted resume with no clear gaps. Results: CUSTOM_RESUME_TEST_RESULTS.json. The generated strong frontend example still produced two gaps, so profile labels are generation targets rather than guaranteed comparison outcomes. Browser checks also passed for generating twice from the same custom backend JD (different histories), readable section breaks, replacing the result with a retail resume, and returning three cited backend gaps. Original draft inputs were restored after testing. A variation identifier requests fresh work histories, but diversity and semantic judgments remain probabilistic.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.

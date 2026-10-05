@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-05",
+  "provider": "gemini",
+  "results": [
+    {
+      "name": "Invalid profile rejected",
+      "status": 400,
+      "passed": true,
+      "response": {
+        "error": "Choose a valid sample resume profile."
+      }
+    },
+    {
+      "name": "Short JD rejected",
+      "status": 400,
+      "passed": true,
+      "response": {
+        "error": "Paste a job description of at least 30 characters."
+      }
+    },
+    {
+      "name": "Custom frontend JD creates a fictional role-related resume",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "resumeText": "FICTIONAL SAMPLE RESUME - FOR DEMONSTRATION ONLY\nPROFILE: Dedicated Frontend Engineer with 3 years of experience specializing in building high-performance web interfaces. Proven track record of translating complex Figma designs into responsive, accessible components using React and modern JavaScript. Expert at integrating RESTful APIs and maintaining high code quality through rigorous Git workflows and unit testing. SKILLS: React, JavaScript, HTML5, CSS3, REST API Integration, Figma, React Testing Library, Git, Web Accessibility (A11y). WORK EXPERIENCE: Fictional Web Solutions Inc. | Frontend Engineer | 2021-Present. Developed and maintained internal dashboards using React. Reduced page load times by 20% by optimizing API call patterns. Fictional Creative Agency | Junior Frontend Developer | 2020-2021. Collaborated with designers to implement mobile-first layouts. PROJECTS: E-Commerce Dashboard (Fictional): Led the frontend implementation of a retail portal using React, ensuring full REST API integration for real-time inventory tracking. Achieved 100% compliance with WCAG 2.1 standards for keyboard navigation. Performance Analytics Tool (Fictional): Built a suite of component tests using React Testing Library, increasing code coverage to 92% across critical modules. EDUCATION: Bachelor of Science in Computer Science, Fictional Institute of Technology. All work history and project metrics presented here are entirely fictional.",
+        "jdCitations": [
+          {
+            "line": 2,
+            "quote": "Experience: 1-3 years building web applications."
+          },
+          {
+            "line": 3,
+            "quote": "Required: React, JavaScript, HTML, CSS and REST API integration."
+          },
+          {
+            "line": 5,
+            "quote": "Write component tests with React Testing Library."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Generated strong resume comparison accepts valid response",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "weakSpots": [
+          {
+            "topic": "Code Reviews",
+            "reason": "The resume does not demonstrate experience with explaining technical decisions during code review processes, which is a specific requirement in the job description.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 7,
+                "quote": "Use Git pull requests and explain decisions in code reviews."
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Accessible Form Labels",
+            "reason": "The resume demonstrates general web accessibility skills and WCAG compliance, but does not explicitly mention experience with implementing accessible form labels.",
+            "status": "partially_demonstrated",
+            "jdCitations": [
+              {
+                "line": 6,
+                "quote": "Implement keyboard navigation and accessible form labels."
+              }
+            ],
+            "resumeCitations": [
+              {
+                "line": 2,
+                "quote": "Web Accessibility (A11y)"
+              },
+              {
+                "line": 2,
+                "quote": "Achieved 100% compliance with WCAG 2.1 standards for keyboard navigation."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Different backend JD creates a different related resume",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "resumeText": "FICTIONAL SAMPLE RESUME - FOR DEMONSTRATION ONLY\nProfile: Dedicated software developer with 4 years of experience specializing in backend architecture and API development. Proficient in designing scalable systems using Python, though lacking direct exposure to AWS cloud infrastructure and formal Docker container orchestration in production environments. Committed to writing clean code and improving service performance. Skills: Python, FastAPI, PostgreSQL, SQL Optimization, Pytest, API Documentation, RESTful Services. Work Experience: Backend Developer at DataStream Solutions (Fictional, 2020-2024). Designed and maintained internal REST APIs serving over 50,000 monthly requests. Implemented complex SQL query optimizations that reduced database latency by 30% for high-traffic endpoints. Projects: Query Optimizer Project: Rewrote three legacy PostgreSQL schemas, resulting in a 40% improvement in response times for the company's fictional inventory dashboard. Automated API Documentation: Developed a pipeline to auto-generate API contract documentation, ensuring consistency across three engineering teams. Education: Bachelor of Science in Computer Science, State Technical University (Fictional).",
+        "jdCitations": [
+          {
+            "line": 2,
+            "quote": "Experience: 3+ years developing backend services."
+          },
+          {
+            "line": 3,
+            "quote": "Build Python REST APIs with FastAPI and PostgreSQL."
+          },
+          {
+            "line": 4,
+            "quote": "Write pytest integration tests and optimize SQL queries."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Generated partial resume produces cited gaps",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "weakSpots": [
+          {
+            "topic": "AWS Cloud Infrastructure",
+            "reason": "The resume explicitly states a lack of direct exposure to AWS, while the JD requires deploying services on that platform.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Deploy Docker services on AWS"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Docker Container Orchestration",
+            "reason": "The resume lacks formal production experience with Docker, which is explicitly requested in the JD.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Deploy Docker services on AWS"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Production Error Monitoring",
+            "reason": "The resume does not demonstrate experience with production error monitoring, a specific responsibility outlined in the JD.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "monitor production errors"
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Different pasted resume produces cited missing skills",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "weakSpots": [
+          {
+            "topic": "Frontend technical stack (React, JavaScript, HTML, CSS)",
+            "reason": "The resume does not demonstrate experience with the specific frontend technologies required for the role; focus on creating projects that showcase these languages.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 3,
+                "quote": "Required: React, JavaScript, HTML, CSS"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Frontend Development Workflow (Git, API Integration)",
+            "reason": "The resume does not demonstrate experience with REST APIs or Git version control; consider building a project that consumes an API and tracking code via Git.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 3,
+                "quote": "REST API integration"
+              },
+              {
+                "line": 7,
+                "quote": "Use Git pull requests"
+              }
+            ],
+            "resumeCitations": []
+          },
+          {
+            "topic": "Accessibility and Testing",
+            "reason": "The resume does not demonstrate technical knowledge of accessibility standards or writing unit tests for components; look into documentation for React Testing Library and WCAG guidelines.",
+            "status": "not_demonstrated",
+            "jdCitations": [
+              {
+                "line": 5,
+                "quote": "Write component tests with React Testing Library."
+              },
+              {
+                "line": 6,
+                "quote": "Implement keyboard navigation and accessible form labels."
+              }
+            ],
+            "resumeCitations": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "Matching pasted resume returns no clear gaps",
+      "status": 200,
+      "passed": true,
+      "response": {
+        "weakSpots": []
+      }
+    }
+  ]
+}
