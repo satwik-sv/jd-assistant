@@ -1051,3 +1051,17 @@ header {
   font-variant-numeric: tabular-nums;
   margin-right: 3px;
 }
+
+/* Keep citation markers away from text without moving rows on selection. */
+.grouped-source .source-points li {
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 0;
+}
+.grouped-source .source-points li p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.grouped-source .source-label.highlighted {
+  box-shadow: none;
+}
