@@ -17,7 +17,6 @@ function App() {
     [history, setHistory] = useState([]),
     [prep, setPrep] = useState(null),
     [resume, setResume] = useState(""),
-    [sampleRole, setSampleRole] = useState(null),
     [resumeMatch, setResumeMatch] = useState("strong"),
     [activeResume, setActiveResume] = useState(""),
     [gaps, setGaps] = useState(null),
@@ -30,6 +29,7 @@ function App() {
   const pending = useRef(null);
   const answerCache = useRef(new Map());
   const sampleIndex = useRef(0);
+  const sampleRole = SAMPLES.indexOf(jd);
   const resumeDetails = useRef(null);
   const resumeSequences = useRef(new Map());
   function loadResumeExample(role, profile) {
@@ -402,16 +402,15 @@ function App() {
                     disabled={Boolean(busy)}
                     onClick={() => {
                       setJd(SAMPLES[sampleIndex.current]);
-                      setSampleRole(sampleIndex.current);
-                      loadResumeExample(sampleIndex.current, resumeMatch);
-                      if (resumeDetails.current)
-                        resumeDetails.current.open = true;
+                      setImportNotice(
+                        "Sample JD loaded. Your resume is unchanged; load a sample resume separately if needed.",
+                      );
                       sampleIndex.current =
                         (sampleIndex.current + 1) % SAMPLES.length;
                       setError("");
                     }}
                   >
-                    Load sample
+                    Load sample JD
                   </button>
                 </div>
                 <details className="resume-input" ref={resumeDetails}>
@@ -460,12 +459,12 @@ function App() {
                       className="primary full"
                       disabled={
                         Boolean(busy) ||
-                        sampleRole === null ||
+                        sampleRole < 0 ||
                         jd !== SAMPLES[sampleRole]
                       }
                       onClick={() => loadResumeExample(sampleRole, resumeMatch)}
                     >
-                      Load another resume
+                      Load sample resume
                     </button>
                     <p className="small-note">
                       Three different work histories per profile. Each click
@@ -487,9 +486,9 @@ function App() {
                     selected AI provider and kept in this session.
                   </p>
                   <p className="sample-note">
-                    Load sample fills both documents with a fictional JD and
-                    related resume. Profiles offer different levels of evidence
-                    and never represent your experience.
+                    JD and resume samples load separately. Resume profiles offer
+                    different levels of evidence and never represent your
+                    experience.
                   </p>
                 </details>
                 {busy === "import" && (

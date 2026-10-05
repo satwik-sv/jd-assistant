@@ -36,6 +36,11 @@
 - Added a highlighted Job title label, Department and Employment type metadata, explicit standalone section grouping, and optional source line numbering. Every original source line retains an anchor, including headings.
 - All 31 automated tests and the production build passed. New tests verify that overview text and responsibility points stay under their explicit headings, repeated headings remain separate, and every original line is represented once. Browser checks verified a 12-line posting, overview line 6 under heading line 5, and hide/show numbering with all 12 source anchors intact. A real Gemini job-title answer passed validation; clicking its citation highlighted original source line 1 while numbers were hidden.
 
+## Separate sample controls — 5 October 2026
+
+- Load sample JD updates only the JD. Load sample resume updates only the resume and uses the selected profile for a recognized built-in posting. Resume examples still rotate per role/profile.
+- Browser checks passed: a custom draft resume remains unchanged after JD loading; the JD remains identical after resume loading. The original draft documents were restored after checking. Production build passed.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
