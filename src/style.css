@@ -1065,3 +1065,39 @@ header {
 .grouped-source .source-label.highlighted {
   box-shadow: none;
 }
+
+.input-meta:has(.sample-button) {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.sample-button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid #bfd0f7;
+  border-radius: 10px;
+  background: #eef4ff;
+  color: #1d4ed8;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.sample-button:hover:enabled {
+  background: #e0ebff;
+  border-color: #2563eb;
+}
+.sample-button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+.sample-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

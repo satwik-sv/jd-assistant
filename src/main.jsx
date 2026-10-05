@@ -398,7 +398,7 @@ function App() {
                 <div className="input-meta">
                   <span>{jd.length.toLocaleString()} / 24,000 characters</span>
                   <button
-                    className="text-button"
+                    className="sample-button"
                     disabled={Boolean(busy)}
                     onClick={() => {
                       setJd(SAMPLES[sampleIndex.current]);
@@ -456,7 +456,7 @@ function App() {
                       ))}
                     </fieldset>
                     <button
-                      className="primary full"
+                      className="sample-button"
                       disabled={
                         Boolean(busy) ||
                         sampleRole < 0 ||
