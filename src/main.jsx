@@ -2,7 +2,7 @@ import { SAMPLES } from "./sample-postings.js";
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
-import { sourceLabel } from "./source-label.js";
+import { groupSourceLines } from "./source-label.js";
 import { prepBudget } from "./prep-policy.js";
 import {
   selectSampleResume,
@@ -25,7 +25,8 @@ function App() {
     [busy, setBusy] = useState(null),
     [error, setError] = useState(""),
     [configured, setConfigured] = useState(null),
-    [highlight, setHighlight] = useState(null);
+    [highlight, setHighlight] = useState(null),
+    [showSourceNumbers, setShowSourceNumbers] = useState(false);
   const pending = useRef(null);
   const answerCache = useRef(new Map());
   const sampleIndex = useRef(0);
@@ -46,16 +47,7 @@ function App() {
       ?.split(/\r?\n/)
       .map((x) => x.trim())
       .filter(Boolean) || [];
-  const sourceGroups = lines.reduce((groups, text, index) => {
-    const label = sourceLabel(text, index);
-    let group = groups.find((item) => item.label === label);
-    if (!group) {
-      group = { label, points: [] };
-      groups.push(group);
-    }
-    group.points.push({ text, line: index + 1 });
-    return groups;
-  }, []);
+  const sourceGroups = groupSourceLines(lines);
   useEffect(() => {
     fetch("/api/health")
       .then((r) => r.json())
@@ -540,27 +532,56 @@ function App() {
               <>
                 <div className="source-meta">
                   <span>{lines.length} source lines</span>
-                  <span>Click a citation to find its source</span>
+                  <button
+                    className="text-button"
+                    aria-pressed={showSourceNumbers}
+                    onClick={() => setShowSourceNumbers((value) => !value)}
+                  >
+                    {showSourceNumbers
+                      ? "Hide line numbers"
+                      : "Show line numbers"}
+                  </button>
                 </div>
-                <div className="source-lines grouped-source">
-                  {sourceGroups.map((group) => (
-                    <section
-                      className="source-group"
-                      key={group.label || "title"}
-                    >
+                <div
+                  className={
+                    "source-lines grouped-source " +
+                    (showSourceNumbers ? "show-line-numbers" : "")
+                  }
+                >
+                  {sourceGroups.map((group, groupIndex) => (
+                    <section className="source-group" key={groupIndex}>
                       {group.label && (
-                        <h3 className="source-label">{group.label}</h3>
+                        <h3
+                          id={
+                            group.headingLine
+                              ? `source-${group.headingLine}`
+                              : undefined
+                          }
+                          className={
+                            "source-label " +
+                            (highlight === group.headingLine
+                              ? "highlighted"
+                              : "")
+                          }
+                          title={group.headingText || group.label}
+                        >
+                          {group.label}
+                          {showSourceNumbers && group.headingLine && (
+                            <small> · L{group.headingLine}</small>
+                          )}
+                        </h3>
                       )}
                       <ul
                         className={
-                          group.label
-                            ? "source-points"
-                            : "source-points source-title"
+                          group.label === "Job title"
+                            ? "source-points source-title"
+                            : "source-points"
                         }
                       >
-                        {group.points.map(({ text, line }) => (
+                        {group.points.map(({ displayText, line }) => (
                           <li
                             id={`source-${line}`}
+                            aria-label={`Source line ${line}`}
                             className={highlight === line ? "highlighted" : ""}
                             key={line}
                           >
@@ -570,14 +591,7 @@ function App() {
                             >
                               {String(line).padStart(2, "0")}
                             </span>
-                            <p>
-                              {text
-                                .replace(
-                                  /^\s*[-•]?\s*(location|work arrangement|experience|skills|requirements|responsibilities|salary|benefits|employment type|qualifications)\s*:\s*/i,
-                                  "",
-                                )
-                                .replace(/^[-•]\s*/, "") || text}
-                            </p>
+                            <p>{displayText}</p>
                           </li>
                         ))}
                       </ul>

@@ -31,6 +31,11 @@
 - Profile cards use native labeled radio inputs, visible selection and keyboard navigation. Added three rotating examples per role/profile (72 total), with per-profile counters and explicit wrap messaging. Partial and career-change histories add different evidence as well as changing context; strong profiles retain core role skills.
 - All 29 automated tests passed, including unique pools, consecutive rotation, wrap and invalid selection. Build passed. Browser checks passed for three distinct consecutive loads, returning to the first after three, profile selection by keyboard, and no horizontal overflow at 390 pixels. Existing live reports cover earlier samples; all 72 rotated examples have not been evaluated with the model.
 
+## Source layout update — 5 October 2026
+
+- Added a highlighted Job title label, Department and Employment type metadata, explicit standalone section grouping, and optional source line numbering. Every original source line retains an anchor, including headings.
+- All 31 automated tests and the production build passed. New tests verify that overview text and responsibility points stay under their explicit headings, repeated headings remain separate, and every original line is represented once. Browser checks verified a 12-line posting, overview line 6 under heading line 5, and hide/show numbering with all 12 source anchors intact. A real Gemini job-title answer passed validation; clicking its citation highlighted original source line 1 while numbers were hidden.
+
 ## Executed validation
 
 - 26/26 automated tests passed: document normalization, exact citations, malformed output, provider errors, request construction, text/DOCX imports, invalid-file handling, resume evidence validation, paired sample coverage and shared adaptive prep policy.
